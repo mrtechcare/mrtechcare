@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#080E19"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="#1677FF" stroke-opacity="0.3" stroke-width="2"/>
-  <circle cx="32" cy="32" r="24" fill="#1677FF" fill-opacity="0.1" filter="blur(4px)"/>
-  <path d="M16 46V22L24 35L32 22V46" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 46V22H48C51.5 22 53.5 24 53.5 27.5C53.5 31 51.5 33 48 33H38" stroke="#1677FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M44 33L54 46" stroke="#00D2FF" stroke-width="3.5" stroke-linecap="round"/>
-  <circle cx="51" cy="18" r="3" fill="#00F0FF"/>
+  <rect width="64" height="64" rx="16" fill="#080E19"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#border-grad)" stroke-width="2.5"/>
+  <path d="M14 44V22L23 33L32 22V44" stroke="url(#m-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 22H46M38 22V44" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 26C51 22 47 22 44 24C40 27 40 38 44 41C48 43 52 42 54 39" stroke="#1677FF" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="51" cy="18" r="3" fill="#F97316"/>
+  <defs>
+    <linearGradient id="border-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#F97316"/>
+      <stop offset="0.5" stopColor="#EF4444"/>
+      <stop offset="1" stopColor="#1677FF"/>
+    </linearGradient>
+    <linearGradient id="m-grad" x1="14" y1="22" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stopColor="#F97316"/>
+      <stop offset="1" stopColor="#EF4444"/>
+    </linearGradient>
+  </defs>
 </svg>

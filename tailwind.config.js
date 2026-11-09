@@ -46,6 +46,8 @@ export default {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        script: ['Caveat', 'cursive'],
+        stylish: ['Comfortaa', 'cursive'],
       },
       boxShadow: {
         'glow-sm': '0 0 15px rgba(22, 119, 255, 0.25)',
@@ -67,5 +69,9 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addVariant }) {
+      addVariant('light', 'html.light &');
+    }
+  ],
 }

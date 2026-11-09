@@ -6,7 +6,7 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     try {
       const saved = localStorage.getItem('mrtechcare_theme');
-      if (saved) return saved;
+      if (saved === 'light' || saved === 'dark') return saved;
       return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     } catch {
       return 'dark';
@@ -18,9 +18,11 @@ export const ThemeProvider = ({ children }) => {
     if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
+      root.setAttribute('data-theme', 'dark');
     } else {
-      root.classList.add('light');
       root.classList.remove('dark');
+      root.classList.add('light');
+      root.setAttribute('data-theme', 'light');
     }
     try {
       localStorage.setItem('mrtechcare_theme', theme);

@@ -49,11 +49,13 @@ export const Hero = () => {
           {/* Left Hero Content */}
           <div className="lg:col-span-7 flex flex-col text-left">
             
-            {/* Trust Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-500/10 border border-electric-500/25 w-fit mb-5 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-electric-400 animate-pulse"></span>
-              <span className="text-xs font-semibold tracking-wide text-electric-400 light:text-electric-700 uppercase">
-                {t('hero.badge')}
+            {/* Stylish Brand Identity Badge (Cooljazz / Handwritten Style) */}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-script text-3xl sm:text-4xl font-bold bg-gradient-to-r from-flame-500 via-crimson-500 to-electric-500 bg-clip-text text-transparent select-none">
+                MrTech Care
+              </span>
+              <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-flame-500/10 border border-flame-500/25 text-flame-500 dark:text-flame-400">
+                Your Tech. Our Care.
               </span>
             </div>
 

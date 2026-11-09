@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light dark;
+}
+
+html.dark {
   color-scheme: dark;
 }
 
@@ -12,98 +16,75 @@ html.light {
 
 body {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Custom scrollbar */
+html.dark body {
+  background-color: #04070D;
+  color: #F1F5F9;
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080E19;
-}
-
-html.light ::-webkit-scrollbar-track {
   background: #F1F5F9;
 }
 
+html.dark ::-webkit-scrollbar-track {
+  background: #080E19;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: #1A2A47;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
-html.light ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1A2A47;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1677FF;
+  background: #F97316;
 }
 
 /* Tech Grid Pattern */
 .bg-tech-grid {
   background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-html.light .bg-tech-grid {
-  background-image: 
     linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
-.bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(22, 119, 255, 0.15) 0%, rgba(249, 115, 22, 0.08) 35%, rgba(8, 14, 25, 0) 70%);
+html.dark .bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-html.light .bg-radial-glow {
+.bg-radial-glow {
   background: radial-gradient(circle at 50% 0%, rgba(22, 119, 255, 0.12) 0%, rgba(249, 115, 22, 0.08) 40%, rgba(248, 250, 252, 0) 75%);
 }
 
-.bg-glass {
-  background: rgba(12, 21, 37, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+html.dark .bg-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(22, 119, 255, 0.15) 0%, rgba(249, 115, 22, 0.08) 35%, rgba(4, 7, 13, 0) 70%);
+}
+
+/* Card Elevated */
+.card-theme {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+html.dark .card-theme {
+  background-color: rgba(12, 21, 37, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-html.light .bg-glass {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-}
-
-.bg-glass-card {
-  background: rgba(15, 26, 48, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-html.light .bg-glass-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-}
-
-.bg-glass-card:hover {
-  border-color: rgba(249, 115, 22, 0.5);
-  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(249, 115, 22, 0.2);
-}
-
-html.light .bg-glass-card:hover {
-  border-color: rgba(22, 119, 255, 0.4);
-  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.1), 0 0 20px rgba(22, 119, 255, 0.15);
-}
-
-/* Gradient Text Shimmer */
-.shimmer-text {
-  background: linear-gradient(90deg, #1677FF 0%, #F97316 50%, #EF4444 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }

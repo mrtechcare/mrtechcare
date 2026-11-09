@@ -6,6 +6,7 @@ import {
   OWNER_NAME, 
   createWhatsAppLink 
 } from '../utils/whatsapp';
+import { BrandLogo } from './BrandLogo';
 import { 
   Phone, 
   Mail, 
@@ -39,14 +40,7 @@ export const Footer = () => {
           
           {/* Brand & Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-flame-500 via-crimson-600 to-electric-600 border border-flame-400/40 text-white font-mono font-black text-sm">
-                MC
-              </div>
-              <span className="font-extrabold text-xl text-white tracking-tight">
-                MRTECH<span className="text-flame-500">CARE</span>
-              </span>
-            </div>
+            <BrandLogo size="md" showText={true} />
 
             <p className="text-xs text-flame-400 font-bold tracking-wider uppercase">
               {t('footer.tagline')}
