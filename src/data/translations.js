@@ -1,8 +1,22 @@
 export const translations = {
   en: {
+    theme: {
+      toggleToLight: "Switch to Day Mode",
+      toggleToDark: "Switch to Night Mode",
+      dayMode: "Day Mode",
+      nightMode: "Night Mode",
+    },
+    emergency: {
+      badge: "Urgent Tech Emergency?",
+      title: "Work Stopped Due to a Laptop or Computer Breakdown?",
+      subtitle: "Get immediate priority dispatch across Delhi NCR or connect remotely in under 5 minutes.",
+      callBtn: "Emergency Call",
+      chatBtn: "Emergency WhatsApp",
+    },
     nav: {
       home: "Home",
       services: "Services",
+      estimator: "Quick Diagnostic",
       pricing: "Pricing",
       remote: "Remote Support",
       doorstep: "Doorstep Service",
@@ -37,6 +51,48 @@ export const translations = {
         supportMode: "Direct 1-on-1",
         supportModeLabel: "Independent Support",
       }
+    },
+    estimator: {
+      badge: "Interactive Diagnostic Tool",
+      title: "Find Your Fix & Estimated Cost in 10 Seconds",
+      subtitle: "Select your device and symptom to see instant indicative pricing and turnaround time.",
+      selectDevice: "1. Select Your Device",
+      selectIssue: "2. What is the Problem?",
+      selectMode: "3. Preferred Service Mode",
+      doorstepMode: "Doorstep Visit (Delhi NCR)",
+      remoteMode: "Remote Online (Pan-India)",
+      resultTitle: "Diagnosis Summary",
+      baseFee: "Indicative Base Fee",
+      estimatedTime: "Typical Turnaround",
+      actionBook: "Book This Fix on WhatsApp",
+      safetyNote: "Final price confirmed after physical/remote inspection. Zero hidden charges."
+    },
+    visualShowcase: {
+      badge: "Real Hands-On Tech Work",
+      title: "Precision Hardware & Certified Software Care",
+      subtitle: "Take a closer look at the diagnostics, hardware replacements, and workstation setups we handle daily.",
+      items: [
+        {
+          title: "In-Depth Laptop Teardown & Chip Inspection",
+          category: "Hardware Diagnosis",
+          desc: "Thermal repasting with high-grade thermal paste, motherboard power rail inspection, fan cleaning, and hinge realignment."
+        },
+        {
+          title: "High-Speed NVMe SSD & RAM Performance Boost",
+          category: "Upgrades & Speed",
+          desc: "Transform sluggish laptops and desktops. Boot times drop from 3 minutes down to under 12 seconds with clean OS clone."
+        },
+        {
+          title: "Precision Mobile & Tablet Hardware Repair",
+          category: "Mobile Solutions",
+          desc: "Accurate display glass and touch digitizer replacement, swollen battery renewals, and charging dock restoration."
+        },
+        {
+          title: "Secure Dual-Screen Remote Troubleshooting",
+          category: "Pan-India IT Support",
+          desc: "Resolving driver conflicts, boot errors, network printer sharing, and OS bugs over encrypted AnyDesk & TeamViewer."
+        }
+      ]
     },
     services: {
       badge: "What We Do",
@@ -217,9 +273,23 @@ export const translations = {
     }
   },
   hi: {
+    theme: {
+      toggleToLight: "डे मोड चालू करें",
+      toggleToDark: "डार्क मोड चालू करें",
+      dayMode: "डे मोड (Day)",
+      nightMode: "नाईट मोड (Night)",
+    },
+    emergency: {
+      badge: "अर्जेंट टेक इमरजेंसी?",
+      title: "अचानक लैपटॉप या कंप्यूटर खराब होने से काम रुक गया?",
+      subtitle: "दिल्ली एनसीआर में तत्काल प्राथमिकता के साथ डोरस्टेप विजिट पाएं या 5 मिनट में ऑनलाइन रिमोट सहायता शुरू करें।",
+      callBtn: "इमरजेंसी कॉल",
+      chatBtn: "इमरजेंसी व्हाट्सएप",
+    },
     nav: {
       home: "होम",
       services: "सेवाएं",
+      estimator: "त्वरित डायग्नोस्टिक",
       pricing: "मूल्य सूची",
       remote: "रिमोट सपोर्ट",
       doorstep: "डोरस्टेप सर्विस",
@@ -254,6 +324,48 @@ export const translations = {
         supportMode: "सीधा संपर्क",
         supportModeLabel: "स्वतंत्र ऑपरेटर",
       }
+    },
+    estimator: {
+      badge: "इंटरएक्टिव डायग्नोस्टिक टूल",
+      title: "10 सेकंड में अपनी समस्या और अनुमानित खर्च जानें",
+      subtitle: "अपना डिवाइस और समस्या चुनें और तुरंत शुरुआती सांकेतिक दर व समय देखें।",
+      selectDevice: "1. अपना डिवाइस चुनें",
+      selectIssue: "2. क्या समस्या आ रही है?",
+      selectMode: "3. पसंदीदा सेवा का तरीका",
+      doorstepMode: "डोरस्टेप विजिट (दिल्ली एनसीआर)",
+      remoteMode: "ऑनलाइन रिमोट (पूरे भारत में)",
+      resultTitle: "डायग्नोसिस सारांश",
+      baseFee: "अनुमानित शुरुआती शुल्क",
+      estimatedTime: "अनुमानित समय",
+      actionBook: "यह सेवा व्हाट्सएप पर बुक करें",
+      safetyNote: "अंतिम शुल्क जांच के बाद ही तय होता है। कोई छुपा हुआ चार्ज नहीं।"
+    },
+    visualShowcase: {
+      badge: "असली तकनीकी कार्य",
+      title: "सटीक हार्डवेयर रिपेयर और प्रमाणित सॉफ्टवेयर समाधान",
+      subtitle: "देखें कि हम रोजाना लैपटॉप, डेस्कटॉप और मदरबोर्ड पर किस सटीकता से कार्य करते हैं।",
+      items: [
+        {
+          title: "लैपटॉप टीयरडाउन एवं मदरबोर्ड चिप जांच",
+          category: "हार्डवेयर डायग्नोसिस",
+          desc: "प्रीमियम थर्मल पेस्ट सर्विस, फैन क्लीनिंग, मदरबोर्ड पावर रेल चेकिंग एवं हिंज रिपेयर।"
+        },
+        {
+          title: "सुपरफास्ट NVMe SSD व RAM स्पीड अपग्रेड",
+          category: "परफॉर्मेंस अपग्रेड",
+          desc: "धीमे कंप्यूटर और लैपटॉप की स्पीड कई गुना तेज। बूट टाइम 3 मिनट से घटकर सिर्फ 10 सेकंड।"
+        },
+        {
+          title: "सटीक स्मार्टफोन व टैबलेट हार्डवेयर रिपेयर",
+          category: "मोबाइल समाधान",
+          desc: "ओरिजिनल क्वालिटी डिस्प्ले स्क्रीन असेसमेंट, कमजोर बैटरी रिप्लेसमेंट व चार्जिंग जैक सुधार।"
+        },
+        {
+          title: "सुरक्षित डुअल-स्क्रीन रिमोट ट्रबलशूटिंग",
+          category: "रिमोट आईटी सपोर्ट",
+          desc: "AnyDesk और TeamViewer के माध्यम से ड्राइवर, विंडोज बूट एरर और प्रिंटर नेटवर्क समस्या का समाधान।"
+        }
+      ]
     },
     services: {
       badge: "हमारी सेवाएं",

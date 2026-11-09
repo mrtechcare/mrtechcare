@@ -51,7 +51,7 @@ export const RemoteSupportSection = () => {
   ];
 
   return (
-    <section id="remote-support" className="py-20 lg:py-28 relative bg-midnight-900 border-t border-white/5">
+    <section id="remote-support" className="py-20 lg:py-28 relative bg-midnight-900 light:bg-slate-50 border-t border-white/5 light:border-slate-200 transition-colors">
       
       {/* Background radial glow */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-electric-500/10 blur-[160px] pointer-events-none rounded-full" />
@@ -60,26 +60,26 @@ export const RemoteSupportSection = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 light:text-cyan-700 text-xs font-semibold uppercase tracking-wider mb-3">
             <Globe2 className="w-3.5 h-3.5" />
             <span>{t('remote.badge')}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
             {t('remote.title')}
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-300 light:text-slate-600">
             {t('remote.subtitle')}
           </p>
 
           {/* Software Badge Pills */}
           <div className="mt-5 flex items-center justify-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-midnight-950 border border-white/10 text-xs font-medium text-slate-200">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-midnight-950 light:bg-white border border-white/10 light:border-slate-300 text-xs font-medium text-slate-200 light:text-slate-800 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-rose-500"></span>
               <span>AnyDesk Remote Support</span>
             </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-midnight-950 border border-white/10 text-xs font-medium text-slate-200">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-midnight-950 light:bg-white border border-white/10 light:border-slate-300 text-xs font-medium text-slate-200 light:text-slate-800 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-blue-500"></span>
               <span>TeamViewer Support</span>
             </div>
@@ -88,7 +88,7 @@ export const RemoteSupportSection = () => {
 
         {/* 5-Step Process Timeline */}
         <div className="mt-16">
-          <h3 className="text-xl font-bold text-center text-white mb-10">
+          <h3 className="text-xl font-bold text-center text-white light:text-slate-900 mb-10">
             {t('remote.stepsTitle')}
           </h3>
 
@@ -96,29 +96,29 @@ export const RemoteSupportSection = () => {
             {steps.map((step, idx) => (
               <div 
                 key={step.num}
-                className="relative flex flex-col justify-between p-5 rounded-2xl bg-midnight-950/80 border border-white/10 hover:border-cyan-500/40 transition-all duration-300"
+                className="relative flex flex-col justify-between p-5 rounded-2xl bg-midnight-950/80 light:bg-white border border-white/10 light:border-slate-200 hover:border-cyan-500/40 transition-all duration-300 shadow-card-elevated"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-black text-electric-400">
+                    <span className="font-mono text-2xl font-black text-flame-400 light:text-flame-600">
                       {step.num}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 uppercase">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 light:bg-slate-100 text-slate-400 light:text-slate-600 uppercase">
                       Step {idx + 1}
                     </span>
                   </div>
 
-                  <h4 className="text-base font-bold text-white mb-2 leading-snug">
+                  <h4 className="text-base font-bold text-white light:text-slate-900 mb-2 leading-snug">
                     {step.title}
                   </h4>
 
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-300 light:text-slate-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/5 flex items-center text-[10px] text-slate-400 font-mono">
-                  <CheckCircle2 className="w-3 h-3 text-cyan-400 mr-1" />
+                <div className="mt-4 pt-3 border-t border-white/5 light:border-slate-100 flex items-center text-[10px] text-slate-400 light:text-slate-500 font-mono">
+                  <CheckCircle2 className="w-3 h-3 text-cyan-400 light:text-cyan-600 mr-1" />
                   <span>100% Transparent</span>
                 </div>
               </div>
@@ -127,36 +127,36 @@ export const RemoteSupportSection = () => {
         </div>
 
         {/* Strict Security & Privacy Guarantee Callout */}
-        <div className="mt-14 rounded-2xl bg-gradient-to-r from-midnight-950 via-midnight-850 to-midnight-950 border border-emerald-500/30 p-6 sm:p-8 backdrop-blur-md">
+        <div className="mt-14 rounded-2xl bg-gradient-to-r from-midnight-950 via-midnight-850 to-midnight-950 light:from-white light:via-slate-50 light:to-white border border-emerald-500/30 light:border-emerald-300 p-6 sm:p-8 backdrop-blur-md shadow-card-elevated">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             
             <div className="lg:col-span-8 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400 mt-1">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 light:bg-emerald-50 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400 light:text-emerald-600 mt-1">
                 <ShieldCheck className="w-6 h-6" />
               </div>
 
               <div>
-                <h4 className="text-lg font-bold text-white flex items-center gap-2">
+                <h4 className="text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
                   <span>{t('remote.securityTitle')}</span>
-                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 uppercase font-semibold">
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 light:text-emerald-800 uppercase font-semibold">
                     100% Verified Safety
                   </span>
                 </h4>
 
-                <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+                <p className="mt-2 text-sm text-slate-300 light:text-slate-600 leading-relaxed">
                   {t('remote.securityDesc')}
                 </p>
 
-                <div className="mt-4 flex flex-wrap gap-4 text-xs font-mono text-slate-300">
-                  <div className="flex items-center gap-1.5 text-rose-300">
+                <div className="mt-4 flex flex-wrap gap-4 text-xs font-mono text-slate-300 light:text-slate-700">
+                  <div className="flex items-center gap-1.5 text-rose-300 light:text-rose-700">
                     <EyeOff className="w-4 h-4 text-rose-400" />
                     <span>Never asks for passwords or OTPs</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-amber-300">
+                  <div className="flex items-center gap-1.5 text-amber-300 light:text-amber-700">
                     <Lock className="w-4 h-4 text-amber-400" />
                     <span>Never requests banking or payment PINs</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-emerald-300">
+                  <div className="flex items-center gap-1.5 text-emerald-300 light:text-emerald-700">
                     <UserCheck className="w-4 h-4 text-emerald-400" />
                     <span>Close session anytime with 1 click</span>
                   </div>
@@ -169,7 +169,7 @@ export const RemoteSupportSection = () => {
                 href={createWhatsAppLink(remoteWhatsAppMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-white bg-electric-500 hover:bg-electric-600 rounded-xl shadow-glow-sm hover:shadow-glow-md transition-all duration-200"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-flame-500 to-crimson-600 hover:from-flame-600 hover:to-crimson-700 rounded-xl shadow-glow-orange active:scale-95 transition-all duration-200"
               >
                 <MessageSquare className="w-4 h-4 fill-current text-white" />
                 <span>{t('remote.startRemoteBtn')}</span>

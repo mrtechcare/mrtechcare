@@ -14,7 +14,8 @@ import {
   ArrowUp, 
   ShieldCheck, 
   Heart,
-  Globe2
+  Globe2,
+  Flame
 } from 'lucide-react';
 
 export const Footer = () => {
@@ -26,10 +27,10 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-midnight-950 text-slate-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-midnight-950 light:bg-slate-900 text-slate-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden transition-colors">
       
-      {/* Top Subtle Border Highlight */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-electric-500/50 to-transparent" />
+      {/* Top Subtle Border Highlight with Fire & Electric Gradients */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-flame-500 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -39,15 +40,15 @@ export const Footer = () => {
           {/* Brand & Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-electric-500 to-midnight-800 border border-electric-400/40 text-white font-mono font-black text-sm">
+              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-flame-500 via-crimson-600 to-electric-600 border border-flame-400/40 text-white font-mono font-black text-sm">
                 MC
               </div>
               <span className="font-extrabold text-xl text-white tracking-tight">
-                MRTECH<span className="text-electric-500">CARE</span>
+                MRTECH<span className="text-flame-500">CARE</span>
               </span>
             </div>
 
-            <p className="text-xs text-electric-400 font-semibold tracking-wider uppercase">
+            <p className="text-xs text-flame-400 font-bold tracking-wider uppercase">
               {t('footer.tagline')}
             </p>
 
@@ -68,37 +69,42 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#home" className="hover:text-electric-400 transition-colors">
+                <a href="#home" className="hover:text-flame-400 transition-colors">
                   {t('nav.home')}
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-electric-400 transition-colors">
+                <a href="#services" className="hover:text-flame-400 transition-colors">
                   {t('nav.services')}
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-electric-400 transition-colors">
+                <a href="#estimator" className="hover:text-flame-400 transition-colors">
+                  {t('nav.estimator')}
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="hover:text-flame-400 transition-colors">
                   {t('nav.pricing')}
                 </a>
               </li>
               <li>
-                <a href="#remote-support" className="hover:text-electric-400 transition-colors">
+                <a href="#remote-support" className="hover:text-flame-400 transition-colors">
                   {t('nav.remote')}
                 </a>
               </li>
               <li>
-                <a href="#doorstep-service" className="hover:text-electric-400 transition-colors">
+                <a href="#doorstep-service" className="hover:text-flame-400 transition-colors">
                   {t('nav.doorstep')}
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-electric-400 transition-colors">
+                <a href="#about" className="hover:text-flame-400 transition-colors">
                   {t('nav.about')}
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-electric-400 transition-colors">
+                <a href="#contact" className="hover:text-flame-400 transition-colors">
                   {t('nav.contact')}
                 </a>
               </li>
@@ -113,7 +119,7 @@ export const Footer = () => {
             
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-electric-400 shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-flame-500 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-semibold">Doorstep Repair:</span>
                   <p className="text-slate-400 mt-0.5">Delhi, Noida, Ghaziabad & Greater Noida</p>
@@ -121,7 +127,7 @@ export const Footer = () => {
               </div>
 
               <div className="flex items-start gap-2">
-                <Globe2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                <Globe2 className="w-3.5 h-3.5 text-electric-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-semibold">Remote IT Support:</span>
                   <p className="text-slate-400 mt-0.5">Across all Indian states & Union Territories</p>
@@ -147,7 +153,7 @@ export const Footer = () => {
                 <span className="text-slate-400 block">Phone / WhatsApp:</span>
                 <a
                   href="tel:+919990946044"
-                  className="text-white hover:text-electric-400 font-bold font-mono transition-colors"
+                  className="text-white hover:text-flame-400 font-bold font-mono transition-colors"
                 >
                   {DISPLAY_PHONE}
                 </a>
@@ -157,7 +163,7 @@ export const Footer = () => {
                 <span className="text-slate-400 block">Email:</span>
                 <a
                   href={`mailto:${BUSINESS_EMAIL}`}
-                  className="text-white hover:text-electric-400 font-mono transition-colors break-all"
+                  className="text-white hover:text-flame-400 font-mono transition-colors break-all"
                 >
                   {BUSINESS_EMAIL}
                 </a>
@@ -167,7 +173,7 @@ export const Footer = () => {
                 <span className="text-slate-400 block">Official Website:</span>
                 <a
                   href="https://mrtechcare.in"
-                  className="text-electric-400 hover:underline font-mono"
+                  className="text-flame-400 hover:underline font-mono"
                 >
                   mrtechcare.in
                 </a>

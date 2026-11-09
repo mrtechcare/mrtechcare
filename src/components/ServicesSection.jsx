@@ -27,26 +27,26 @@ export const ServicesSection = () => {
   });
 
   return (
-    <section id="services" className="py-20 lg:py-28 relative bg-midnight-900 border-t border-white/5">
+    <section id="services" className="py-20 lg:py-28 relative bg-midnight-900 light:bg-slate-50 border-t border-white/5 light:border-slate-200 transition-colors">
       
       {/* Background radial accent */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-electric-500/5 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-500/5 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-flame-500/10 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-500/10 border border-electric-500/20 text-electric-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-500/10 border border-electric-500/20 text-electric-400 light:text-electric-700 text-xs font-semibold uppercase tracking-wider mb-3">
             <Wrench className="w-3.5 h-3.5" />
             <span>{t('services.badge')}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
             {t('services.title')}
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-300 light:text-slate-600">
             {t('services.subtitle')}
           </p>
         </div>
@@ -62,8 +62,8 @@ export const ServicesSection = () => {
                 type="button"
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 ${
                   isActive
-                    ? 'bg-electric-500 text-white shadow-glow-sm'
-                    : 'bg-midnight-950 text-slate-300 hover:text-white hover:bg-white/5 border border-white/10'
+                    ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-glow-orange'
+                    : 'bg-midnight-950 light:bg-white text-slate-300 light:text-slate-700 hover:text-white light:hover:text-black hover:bg-white/5 light:hover:bg-slate-100 border border-white/10 light:border-slate-200'
                 }`}
                 aria-pressed={isActive}
               >

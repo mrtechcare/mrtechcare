@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -22,6 +23,18 @@ export default {
           700: '#003EB3',
           glow: '#00F0FF',
         },
+        flame: {
+          400: '#FB923C',
+          500: '#F97316', // Vibrant Orange
+          600: '#EA580C',
+          700: '#C2410C',
+        },
+        crimson: {
+          400: '#F87171',
+          500: '#EF4444', // Fiery Red
+          600: '#DC2626',
+          700: '#B91C1C',
+        },
         surface: {
           dark: 'rgba(12, 21, 37, 0.75)',
           card: 'rgba(17, 29, 51, 0.65)',
@@ -38,6 +51,8 @@ export default {
         'glow-sm': '0 0 15px rgba(22, 119, 255, 0.25)',
         'glow-md': '0 0 30px rgba(22, 119, 255, 0.35)',
         'glow-lg': '0 0 45px rgba(22, 119, 255, 0.45)',
+        'glow-orange': '0 0 25px rgba(249, 115, 22, 0.35)',
+        'glow-red': '0 0 25px rgba(239, 68, 68, 0.35)',
         'card-elevated': '0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
       },
       animation: {
