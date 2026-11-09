@@ -1,25 +1,22 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { BrandLogo } from './BrandLogo';
 import { 
   DISPLAY_PHONE, 
   BUSINESS_EMAIL, 
   OWNER_NAME, 
   createWhatsAppLink 
 } from '../utils/whatsapp';
-import { BrandLogo } from './BrandLogo';
 import { 
   Phone, 
   Mail, 
   MapPin, 
   MessageSquare, 
   ArrowUp, 
-  ShieldCheck, 
-  Heart,
-  Globe2,
-  Flame
+  Globe2
 } from 'lucide-react';
 
-export const Footer = () => {
+export const Footer = ({ onTabChange }) => {
   const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
 
@@ -27,95 +24,110 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNav = (tabId) => {
+    if (onTabChange) {
+      onTabChange(tabId);
+    }
+    scrollToTop();
+  };
+
   return (
-    <footer className="bg-midnight-950 light:bg-slate-900 text-slate-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden transition-colors">
+    <footer className="bg-slate-900 text-slate-300 dark:bg-midnight-950 dark:text-slate-400 border-t border-slate-800 dark:border-white/10 pt-12 pb-16 sm:pb-12 relative overflow-hidden transition-colors">
       
-      {/* Top Subtle Border Highlight with Fire & Electric Gradients */}
+      {/* Top Subtle Border Highlight */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-flame-500 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 border-b border-slate-800 dark:border-white/10">
           
           {/* Brand & Bio (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3">
             <BrandLogo size="md" showText={true} />
 
             <p className="text-xs text-flame-400 font-bold tracking-wider uppercase">
               {t('footer.tagline')}
             </p>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-300 dark:text-slate-400 leading-relaxed max-w-sm font-normal">
               {t('footer.bio')}
             </p>
 
-            <div className="pt-2 text-xs text-slate-300 font-mono">
-              <span>Operated by: </span>
+            <div className="pt-1 text-xs text-slate-400 font-mono">
+              <span>Technician & Founder: </span>
               <span className="text-white font-bold">{OWNER_NAME}</span>
             </div>
           </div>
 
           {/* Quick Navigation Links (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+          <div className="lg:col-span-2 space-y-2.5">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
               {t('footer.quickLinks')}
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#home" className="hover:text-flame-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('overview')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
                   {t('nav.home')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#services" className="hover:text-flame-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('services')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
                   {t('nav.services')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#estimator" className="hover:text-flame-400 transition-colors">
-                  {t('nav.estimator')}
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-flame-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('pricing')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
                   {t('nav.pricing')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#remote-support" className="hover:text-flame-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('coverage')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
                   {t('nav.remote')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#doorstep-service" className="hover:text-flame-400 transition-colors">
-                  {t('nav.doorstep')}
-                </a>
+                <button 
+                  onClick={() => handleNav('gallery')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
+                  {t('nav.gallery')}
+                </button>
               </li>
               <li>
-                <a href="#about" className="hover:text-flame-400 transition-colors">
+                <button 
+                  onClick={() => handleNav('contact')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
                   {t('nav.about')}
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-flame-400 transition-colors">
-                  {t('nav.contact')}
-                </a>
+                </button>
               </li>
             </ul>
           </div>
 
           {/* Service Areas (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+          <div className="lg:col-span-3 space-y-2.5">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
               {t('footer.coverage')}
-            </h4>
+            </h3>
             
-            <div className="space-y-2.5 text-xs text-slate-300">
+            <div className="space-y-2 text-xs text-slate-300 dark:text-slate-300">
               <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-flame-500 shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-flame-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-white font-semibold">Doorstep Repair:</span>
+                  <span className="text-white font-bold">Doorstep Service:</span>
                   <p className="text-slate-400 mt-0.5">Delhi, Noida, Ghaziabad & Greater Noida</p>
                 </div>
               </div>
@@ -123,38 +135,38 @@ export const Footer = () => {
               <div className="flex items-start gap-2">
                 <Globe2 className="w-3.5 h-3.5 text-electric-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-white font-semibold">Remote IT Support:</span>
-                  <p className="text-slate-400 mt-0.5">Across all Indian states & Union Territories</p>
+                  <span className="text-white font-bold">Remote IT Assistance:</span>
+                  <p className="text-slate-400 mt-0.5">Across all Indian states via AnyDesk / TeamViewer</p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-2">
-              <span className="inline-block text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+            <div className="pt-1">
+              <span className="inline-block text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">
                 Mon - Sun: 9:00 AM - 9:00 PM
               </span>
             </div>
           </div>
 
           {/* Direct Contact (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+          <div className="lg:col-span-3 space-y-2.5">
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
               {t('footer.contactInfo')}
-            </h4>
+            </h3>
 
-            <div className="space-y-2.5 text-xs text-slate-300">
+            <div className="space-y-2 text-xs text-slate-300">
               <div>
-                <span className="text-slate-400 block">Phone / WhatsApp:</span>
+                <span className="text-slate-400 block font-medium">Direct Phone / WhatsApp:</span>
                 <a
                   href="tel:+919990946044"
-                  className="text-white hover:text-flame-400 font-bold font-mono transition-colors"
+                  className="text-white hover:text-flame-400 font-bold font-mono transition-colors text-sm"
                 >
                   {DISPLAY_PHONE}
                 </a>
               </div>
 
               <div>
-                <span className="text-slate-400 block">Email:</span>
+                <span className="text-slate-400 block font-medium">Email Address:</span>
                 <a
                   href={`mailto:${BUSINESS_EMAIL}`}
                   className="text-white hover:text-flame-400 font-mono transition-colors break-all"
@@ -164,7 +176,7 @@ export const Footer = () => {
               </div>
 
               <div>
-                <span className="text-slate-400 block">Official Website:</span>
+                <span className="text-slate-400 block font-medium">Official Domain:</span>
                 <a
                   href="https://mrtechcare.in"
                   className="text-flame-400 hover:underline font-mono"
@@ -174,12 +186,12 @@ export const Footer = () => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1.5">
               <a
                 href={createWhatsAppLink("Hello Raja ji, I want to inquire about MrTech Care service.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors"
               >
                 <MessageSquare className="w-3.5 h-3.5 fill-current" />
                 <span>Chat on WhatsApp</span>
@@ -190,13 +202,13 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-500">
           
           <div className="text-center md:text-left">
             <p>
               © {currentYear} MrTech Care. {t('footer.rights')}
             </p>
-            <p className="mt-1 text-[11px] text-slate-500 max-w-2xl">
+            <p className="mt-1 text-[11px] text-slate-400 dark:text-slate-500 max-w-2xl leading-normal">
               {t('footer.disclaimer')}
             </p>
           </div>
@@ -204,7 +216,7 @@ export const Footer = () => {
           <button
             onClick={scrollToTop}
             type="button"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors text-xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 dark:bg-white/5 hover:bg-slate-700 dark:hover:bg-white/10 text-slate-200 dark:text-slate-300 hover:text-white border border-slate-700 dark:border-white/10 transition-colors text-xs"
             aria-label="Back to top"
           >
             <span>Back to top</span>

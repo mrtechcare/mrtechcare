@@ -11,13 +11,13 @@ import {
   Globe, 
   Sun, 
   Moon, 
-  Flame,
-  Wrench,
-  Tag,
-  Globe2,
-  Camera,
-  UserCheck,
-  LayoutGrid
+  Wrench, 
+  Tag, 
+  Globe2, 
+  Camera, 
+  UserCheck, 
+  LayoutGrid,
+  CheckCircle2
 } from 'lucide-react';
 
 export const Header = ({ activeTab, onTabChange }) => {
@@ -45,27 +45,28 @@ export const Header = ({ activeTab, onTabChange }) => {
     : 'Hello Raja ji, I need assistance with computer / mobile repair support.';
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white dark:bg-midnight-950 border-b border-slate-200 dark:border-white/10 shadow-sm transition-colors duration-200">
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-midnight-950 border-b border-slate-200 dark:border-white/10 shadow-xs transition-colors duration-200">
       
-      {/* Top Urgent Emergency Alert Strip */}
-      <div className="bg-gradient-to-r from-crimson-600 via-flame-600 to-crimson-600 text-white text-[11px] sm:text-xs py-1.5 px-4 shadow-sm">
+      {/* Top Authentic Service Coverage Strip */}
+      <div className="bg-gradient-to-r from-slate-900 via-midnight-800 to-slate-900 dark:from-midnight-950 dark:via-midnight-900 dark:to-midnight-950 text-white text-[11px] sm:text-xs py-1.5 px-4 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           
           <div className="flex items-center gap-1.5 font-medium truncate">
-            <span className="flex items-center justify-center w-4 h-4 rounded-full bg-white/20 shrink-0">
-              <Flame className="w-3 h-3 text-amber-200 fill-current" />
+            <span className="flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0">
+              <CheckCircle2 className="w-3 h-3 text-emerald-400" />
             </span>
-            <span className="font-extrabold text-amber-200 uppercase tracking-wider">Urgent:</span>
-            <span className="truncate text-white font-medium">Same-day doorstep in Delhi NCR • 5-min Remote Connect Pan-India</span>
+            <span className="font-bold text-flame-400 uppercase tracking-wider">{t('topBar.label')}</span>
+            <span className="truncate text-slate-200">{t('topBar.text')}</span>
           </div>
 
           <div className="flex items-center gap-3 shrink-0 ml-auto">
             <a 
               href="tel:+919990946044" 
-              className="text-white hover:text-amber-200 font-bold flex items-center gap-1 transition-colors"
+              className="text-white hover:text-flame-400 font-bold flex items-center gap-1.5 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-flame-400 rounded px-1"
+              aria-label="Call +91 99909 46044"
             >
-              <Phone className="w-3 h-3 fill-current text-amber-300" />
-              <span>{DISPLAY_PHONE}</span>
+              <Phone className="w-3 h-3 fill-current text-flame-400" />
+              <span className="font-mono">{DISPLAY_PHONE}</span>
             </a>
           </div>
 
@@ -73,7 +74,7 @@ export const Header = ({ activeTab, onTabChange }) => {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5">
         <div className="flex items-center justify-between gap-3">
           
           {/* Brand Logo with Custom MTC Monogram and Cooljazz Handwritten Name */}
@@ -81,6 +82,7 @@ export const Header = ({ activeTab, onTabChange }) => {
             onClick={() => handleTabClick('overview')}
             type="button"
             className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 rounded-lg text-left"
+            aria-label="MrTech Care - Back to Overview"
           >
             <BrandLogo size="md" showText={true} />
           </button>
@@ -95,10 +97,10 @@ export const Header = ({ activeTab, onTabChange }) => {
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
                   type="button"
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 ${
                     isActive
-                      ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-md'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'
+                      ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-sm'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/80 dark:hover:bg-white/5'
                   }`}
                   aria-selected={isActive}
                   role="tab"
@@ -113,14 +115,14 @@ export const Header = ({ activeTab, onTabChange }) => {
           {/* Right Action Tools: Interactive Theme Switcher + Lang + WhatsApp */}
           <div className="flex items-center gap-2 sm:gap-2.5">
             
-            {/* Dedicated Day/Night Pill Switcher with clear visual feedback */}
-            <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-inner">
+            {/* Dedicated Day/Night Pill Switcher with high contrast in both modes */}
+            <div className="flex items-center p-0.5 rounded-xl bg-slate-100 dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-xs">
               <button
                 onClick={() => isDark && toggleTheme()}
                 type="button"
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-flame-500 ${
                   !isDark 
-                    ? 'bg-white text-flame-600 shadow-sm border border-slate-200/60' 
+                    ? 'bg-white text-flame-600 shadow-xs border border-slate-200' 
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
                 aria-pressed={!isDark}
@@ -133,9 +135,9 @@ export const Header = ({ activeTab, onTabChange }) => {
               <button
                 onClick={() => !isDark && toggleTheme()}
                 type="button"
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-flame-500 ${
                   isDark 
-                    ? 'bg-midnight-800 text-electric-400 shadow-sm border border-white/10' 
+                    ? 'bg-midnight-800 text-electric-400 shadow-xs border border-white/10' 
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
                 aria-pressed={isDark}
@@ -150,10 +152,10 @@ export const Header = ({ activeTab, onTabChange }) => {
             <button
               onClick={toggleLanguage}
               type="button"
-              className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-midnight-900 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 transition-colors"
-              aria-label="Toggle language"
+              className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-midnight-900 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
+              aria-label={`Switch to ${language === 'en' ? 'Hindi' : 'English'}`}
             >
-              <Globe className="w-3.5 h-3.5 text-flame-500" />
+              <Globe className="w-3.5 h-3.5 text-flame-600 dark:text-flame-400" />
               <span>{language === 'en' ? 'हिन्दी' : 'EN'}</span>
             </button>
 
@@ -162,19 +164,19 @@ export const Header = ({ activeTab, onTabChange }) => {
               href={createWhatsAppLink(defaultWhatsAppMsg)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 active:scale-95 rounded-xl shadow-sm transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 active:scale-95 rounded-xl shadow-xs transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <MessageSquare className="w-3.5 h-3.5 fill-current" />
               <span>WhatsApp</span>
             </a>
 
-            {/* Mobile Menu Trigger */}
+            {/* Mobile Menu Trigger (min 44x44px for accessibility) */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               type="button"
-              className="p-1.5 sm:p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-midnight-900 rounded-xl border border-slate-200 dark:border-white/10 xl:hidden"
+              className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-midnight-900 rounded-xl border border-slate-200 dark:border-white/10 xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
               aria-expanded={isMobileMenuOpen}
-              aria-label="Toggle Tabs Menu"
+              aria-label={isMobileMenuOpen ? t('nav.menuClose') : t('nav.menuOpen')}
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -183,8 +185,8 @@ export const Header = ({ activeTab, onTabChange }) => {
 
         </div>
 
-        {/* Secondary Horizontal Tabs bar on Tablets / Mobile */}
-        <div className="flex xl:hidden items-center gap-1.5 overflow-x-auto py-2 mt-2 scrollbar-none border-t border-slate-100 dark:border-white/5">
+        {/* Horizontal Tabs Bar on Mobile & Tablet */}
+        <div className="flex xl:hidden items-center gap-1.5 overflow-x-auto py-2 mt-2 scrollbar-none border-t border-slate-100 dark:border-white/5 -mx-4 px-4 sm:mx-0 sm:px-0">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -193,9 +195,9 @@ export const Header = ({ activeTab, onTabChange }) => {
                 key={tab.id}
                 onClick={() => handleTabClick(tab.id)}
                 type="button"
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 ${
                   isActive
-                    ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-sm'
+                    ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-xs'
                     : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-midnight-900 hover:bg-slate-200 dark:hover:bg-white/5 border border-slate-200 dark:border-white/5'
                 }`}
               >
@@ -210,7 +212,7 @@ export const Header = ({ activeTab, onTabChange }) => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-white dark:bg-midnight-950 border-b border-slate-200 dark:border-white/10 px-4 pt-2 pb-5 shadow-2xl">
+        <div className="xl:hidden bg-white dark:bg-midnight-950 border-b border-slate-200 dark:border-white/10 px-4 pt-2 pb-5 shadow-2xl animate-fadeIn">
           <div className="space-y-1">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -220,9 +222,9 @@ export const Header = ({ activeTab, onTabChange }) => {
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
                   type="button"
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+                  className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-bold transition-colors ${
                     isActive
-                      ? 'bg-flame-50 dark:bg-flame-500/10 text-flame-600 dark:text-flame-400 font-bold border border-flame-200 dark:border-flame-500/30'
+                      ? 'bg-flame-50 dark:bg-flame-500/10 text-flame-600 dark:text-flame-400 border border-flame-200 dark:border-flame-500/30'
                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5'
                   }`}
                 >
@@ -241,7 +243,7 @@ export const Header = ({ activeTab, onTabChange }) => {
               href={createWhatsAppLink(defaultWhatsAppMsg)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-bold text-white bg-gradient-to-r from-flame-500 to-crimson-600 rounded-xl shadow-md"
+              className="flex items-center justify-center gap-2 w-full py-3 text-xs font-bold text-white bg-gradient-to-r from-flame-500 to-crimson-600 rounded-xl shadow-xs"
             >
               <MessageSquare className="w-4 h-4 fill-current" />
               <span>{t('nav.whatsappCta')}</span>

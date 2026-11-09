@@ -149,14 +149,17 @@ export const DiagnosticEstimator = () => {
                 {t('estimator.selectIssue')}
               </label>
 
-              <div className="space-y-2">
+              <div className="space-y-2" role="radiogroup" aria-label="Diagnostic Issues">
                 {currentIssues.map((issue) => {
                   const isSelected = selectedIssue === issue.id;
                   return (
-                    <div
+                    <button
                       key={issue.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={isSelected}
                       onClick={() => setSelectedIssue(issue.id)}
-                      className={`flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
+                      className={`w-full flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 ${
                         isSelected
                           ? 'bg-flame-50/80 dark:bg-flame-500/15 border-flame-500 text-slate-900 dark:text-white font-semibold shadow-xs'
                           : 'bg-slate-50 dark:bg-midnight-950 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-midnight-800'
@@ -173,7 +176,7 @@ export const DiagnosticEstimator = () => {
                       <span className="font-mono text-xs font-bold text-flame-600 dark:text-flame-400 shrink-0 ml-2">
                         Starts ₹{issue.price}
                       </span>
-                    </div>
+                    </button>
                   );
                 })}
               </div>

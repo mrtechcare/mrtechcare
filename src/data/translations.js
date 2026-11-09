@@ -6,22 +6,19 @@ export const translations = {
       dayMode: "Day Mode",
       nightMode: "Night Mode",
     },
-    emergency: {
-      badge: "Urgent Tech Emergency?",
-      title: "Work Stopped Due to a Laptop or Computer Breakdown?",
-      subtitle: "Get immediate priority dispatch across Delhi NCR or connect remotely in under 5 minutes.",
-      callBtn: "Emergency Call",
-      chatBtn: "Emergency WhatsApp",
+    topBar: {
+      label: "Service Coverage:",
+      text: "Doorstep Support across Delhi NCR • Remote Technical Assistance Pan-India",
+      callUs: "Call Directly",
     },
     nav: {
-      home: "Home",
+      home: "Overview",
       services: "Services",
       estimator: "Quick Diagnostic",
       pricing: "Pricing",
-      remote: "Remote Support",
-      doorstep: "Doorstep Service",
-      about: "About",
-      contact: "Contact",
+      remote: "Coverage",
+      gallery: "Photo Lab",
+      about: "About & Contact",
       whatsappCta: "Book on WhatsApp",
       langSwitch: "हिंदी",
       menuOpen: "Open menu",
@@ -29,11 +26,12 @@ export const translations = {
     },
     hero: {
       badge: "Verified IT Support & Hardware Care",
+      statusPill: "Doorstep Service in Delhi NCR • Secure Remote Support Across India",
       headlineStart: "Technology Problems?",
       headlineHighlight: "We've Got You Covered.",
       subtitle: "Professional Computer, Laptop & Mobile Solutions.",
       description: "Fast, reliable, and honest technical assistance. Enjoy prompt doorstep repair across Delhi NCR (Delhi, Noida, Ghaziabad & Greater Noida) and safe, secure remote IT support anywhere across India.",
-      bookBtn: "Book a Service",
+      bookBtn: "Instant Diagnostic & Cost",
       exploreBtn: "Explore Services",
       whatsappBtn: "Chat on WhatsApp",
       directPhone: "Call or WhatsApp: +91 99909 46044",
@@ -55,7 +53,7 @@ export const translations = {
     estimator: {
       badge: "Interactive Diagnostic Tool",
       title: "Find Your Fix & Estimated Cost in 10 Seconds",
-      subtitle: "Select your device and symptom to see instant indicative pricing and turnaround time.",
+      subtitle: "Select your device and symptom to see indicative starting charges and typical turnaround time.",
       selectDevice: "1. Select Your Device",
       selectIssue: "2. What is the Problem?",
       selectMode: "3. Preferred Service Mode",
@@ -65,27 +63,27 @@ export const translations = {
       baseFee: "Indicative Base Fee",
       estimatedTime: "Typical Turnaround",
       actionBook: "Book This Fix on WhatsApp",
-      safetyNote: "Final price confirmed after physical/remote inspection. Zero hidden charges."
+      safetyNote: "Final price confirmed after physical or remote diagnosis. Zero hidden charges."
     },
     visualShowcase: {
       badge: "Real Hands-On Tech Work",
       title: "Precision Hardware & Certified Software Care",
-      subtitle: "Take a closer look at the diagnostics, hardware replacements, and workstation setups we handle daily.",
+      subtitle: "A closer look at the actual diagnostic procedures, component upgrades, and repair workbench standards we maintain daily.",
       items: [
         {
           title: "In-Depth Laptop Teardown & Chip Inspection",
           category: "Hardware Diagnosis",
-          desc: "Thermal repasting with high-grade thermal paste, motherboard power rail inspection, fan cleaning, and hinge realignment."
+          desc: "Thermal repasting with high-grade thermal compound, motherboard power rail inspection, fan cleaning, and hinge realignment."
         },
         {
           title: "High-Speed NVMe SSD & RAM Performance Boost",
           category: "Upgrades & Speed",
-          desc: "Transform sluggish laptops and desktops. Boot times drop from 3 minutes down to under 12 seconds with clean OS clone."
+          desc: "Transform sluggish laptops and desktops. Faster boot times and responsive multitasking with clean OS cloning."
         },
         {
           title: "Precision Mobile & Tablet Hardware Repair",
           category: "Mobile Solutions",
-          desc: "Accurate display glass and touch digitizer replacement, swollen battery renewals, and charging dock restoration."
+          desc: "Accurate display glass and touch digitizer replacement, battery renewals, and charging port restoration."
         },
         {
           title: "Secure Dual-Screen Remote Troubleshooting",
@@ -134,7 +132,7 @@ export const translations = {
         {
           number: "01",
           title: "Contact Us on WhatsApp",
-          desc: "Send a quick WhatsApp message to +91 99909 46044 with a brief description of your issue or error screenshot."
+          desc: "Send a message to +91 99909 46044 with a brief description of your issue or error screenshot."
         },
         {
           number: "02",
@@ -188,7 +186,7 @@ export const translations = {
           status: "Active Coverage"
         }
       ],
-      notice: "Doorstep visits are subject to daily technician scheduling, distance, and technician availability. Prior appointment on WhatsApp is recommended.",
+      notice: "Doorstep visits are scheduled based on daily technician availability, travel route, and distance. Prior booking on WhatsApp is recommended.",
       bookDoorstepBtn: "Book Doorstep Visit"
     },
     about: {
@@ -279,22 +277,19 @@ export const translations = {
       dayMode: "डे मोड (Day)",
       nightMode: "नाईट मोड (Night)",
     },
-    emergency: {
-      badge: "अर्जेंट टेक इमरजेंसी?",
-      title: "अचानक लैपटॉप या कंप्यूटर खराब होने से काम रुक गया?",
-      subtitle: "दिल्ली एनसीआर में तत्काल प्राथमिकता के साथ डोरस्टेप विजिट पाएं या 5 मिनट में ऑनलाइन रिमोट सहायता शुरू करें।",
-      callBtn: "इमरजेंसी कॉल",
-      chatBtn: "इमरजेंसी व्हाट्सएप",
+    topBar: {
+      label: "सेवा कवरेज:",
+      text: "दिल्ली एनसीआर में डोरस्टेप सपोर्ट • पूरे भारत में एनीडेस्क द्वारा ऑनलाइन रिमोट सहायता",
+      callUs: "कॉल करें",
     },
     nav: {
-      home: "होम",
+      home: "ओवरव्यू",
       services: "सेवाएं",
       estimator: "त्वरित डायग्नोस्टिक",
       pricing: "मूल्य सूची",
-      remote: "रिमोट सपोर्ट",
-      doorstep: "डोरस्टेप सर्विस",
-      about: "हमारे बारे में",
-      contact: "संपर्क करें",
+      remote: "कवरेज",
+      gallery: "फोटो लैब",
+      about: "संपर्क व परिचय",
       whatsappCta: "व्हाट्सएप पर बुक करें",
       langSwitch: "English",
       menuOpen: "मेनू खोलें",
@@ -302,17 +297,18 @@ export const translations = {
     },
     hero: {
       badge: "सत्यापित आईटी सपोर्ट एवं हार्डवेयर समाधान",
+      statusPill: "दिल्ली एनसीआर में डोरस्टेप सर्विस • पूरे भारत में सुरक्षित ऑनलाइन रिमोट सपोर्ट",
       headlineStart: "तकनीकी समस्याएं?",
       headlineHighlight: "हम हैं ना समाधान के लिए।",
       subtitle: "कंप्यूटर, लैपटॉप और मोबाइल का विश्वसनीय व पेशेवर समाधान।",
       description: "सटीक, ईमानदार और त्वरित तकनीकी सहायता। दिल्ली एनसीआर (दिल्ली, नोएडा, गाजियाबाद व ग्रेटर नोएडा) में घर बैठे डोरस्टेप सर्विस और पूरे भारत में सुरक्षित ऑनलाइन रिमोट आईटी सपोर्ट।",
-      bookBtn: "सर्विस बुक करें",
+      bookBtn: "त्वरित डायग्नोस्टिक व दरें",
       exploreBtn: "सभी सेवाएं देखें",
       whatsappBtn: "व्हाट्सएप पर चैट करें",
       directPhone: "कॉल या व्हाट्सएप: +91 99909 46044",
       perks: {
         doorstep: "डोरस्टेप: दिल्ली, नोएडा, गाजियाबाद व ग्रेटर नोएडा",
-        remote: "पूरे भारत में एनीडेस्क / टीमव्यूअर से रिमोट सहायता",
+        remote: "पूरे भारत में AnyDesk / TeamViewer से रिमोट सहायता",
         honest: "सीधा संपर्क: राजा कुमार (कोई बिचौलिया नहीं)",
         secure: "पूर्ण गोपनीयता: कभी कोई पासवर्ड या ओटीपी नहीं मांगते",
       },
@@ -328,7 +324,7 @@ export const translations = {
     estimator: {
       badge: "इंटरएक्टिव डायग्नोस्टिक टूल",
       title: "10 सेकंड में अपनी समस्या और अनुमानित खर्च जानें",
-      subtitle: "अपना डिवाइस और समस्या चुनें और तुरंत शुरुआती सांकेतिक दर व समय देखें।",
+      subtitle: "अपना डिवाइस और समस्या चुनें और तुरंत शुरुआती सांकेतिक दर व अनुमानित समय देखें।",
       selectDevice: "1. अपना डिवाइस चुनें",
       selectIssue: "2. क्या समस्या आ रही है?",
       selectMode: "3. पसंदीदा सेवा का तरीका",
@@ -353,12 +349,12 @@ export const translations = {
         {
           title: "सुपरफास्ट NVMe SSD व RAM स्पीड अपग्रेड",
           category: "परफॉर्मेंस अपग्रेड",
-          desc: "धीमे कंप्यूटर और लैपटॉप की स्पीड कई गुना तेज। बूट टाइम 3 मिनट से घटकर सिर्फ 10 सेकंड।"
+          desc: "धीमे कंप्यूटर और लैपटॉप की स्पीड कई गुना तेज। तेज बूट टाइम और स्मूथ मल्टीटास्किंग।"
         },
         {
           title: "सटीक स्मार्टफोन व टैबलेट हार्डवेयर रिपेयर",
           category: "मोबाइल समाधान",
-          desc: "ओरिजिनल क्वालिटी डिस्प्ले स्क्रीन असेसमेंट, कमजोर बैटरी रिप्लेसमेंट व चार्जिंग जैक सुधार।"
+          desc: "ओरिजिनल क्वालिटी डिस्प्ले स्क्रीन असेसमेंट, बैटरी रिप्लेसमेंट व चार्जिंग जैक सुधार।"
         },
         {
           title: "सुरक्षित डुअल-स्क्रीन रिमोट ट्रबलशूटिंग",
@@ -407,7 +403,7 @@ export const translations = {
         {
           number: "01",
           title: "व्हाट्सएप पर संपर्क करें",
-          desc: "+91 99909 46044 पर व्हाट्सएप संदेश भेजें और अपनी समस्या या एरर स्क्रीनशॉट साझा करें।"
+          desc: "+91 99909 46044 पर संदेश भेजें और अपनी समस्या या एरर स्क्रीनशॉट साझा करें।"
         },
         {
           number: "02",
@@ -461,7 +457,7 @@ export const translations = {
           status: "सेवा उपलब्ध"
         }
       ],
-      notice: "डोरस्टेप विजिट तकनीशियन की दैनिक उपलब्धता और दूरी पर निर्भर करता है। पहले से व्हाट्सएप पर अपॉइंटमेंट बुक करना बेहतर रहता है।",
+      notice: "डोरस्टेप विजिट तकनीशियन की दैनिक उपलब्धता, रूट और दूरी पर निर्भर करता है। पहले से व्हाट्सएप पर अपॉइंटमेंट बुक करना बेहतर रहता है।",
       bookDoorstepBtn: "डोरस्टेप विजिट बुक करें"
     },
     about: {
