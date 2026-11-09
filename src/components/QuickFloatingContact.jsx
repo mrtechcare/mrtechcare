@@ -28,15 +28,15 @@ export const QuickFloatingContact = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 group">
       
-      {/* Floating Prompt Pill */}
-      <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-midnight-950/95 light:bg-white/95 border border-emerald-500/30 text-white light:text-slate-900 shadow-xl backdrop-blur-md">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span className="text-xs font-semibold">
+      {/* Floating Prompt Pill - High contrast in both Day and Night modes */}
+      <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-midnight-950 border border-emerald-500/40 text-slate-900 dark:text-white shadow-xl backdrop-blur-md">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+        <span className="text-xs font-bold">
           {language === 'hi' ? 'व्हाट्सएप पर सहायता पाएं' : 'Instant WhatsApp Help'}
         </span>
         <button
           onClick={() => setIsDismissed(true)}
-          className="text-slate-400 light:text-slate-500 hover:text-white light:hover:text-black ml-1 p-0.5"
+          className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white ml-1 p-0.5"
           aria-label="Dismiss prompt"
         >
           <X className="w-3.5 h-3.5" />

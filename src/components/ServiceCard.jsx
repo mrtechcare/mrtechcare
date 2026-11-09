@@ -14,7 +14,7 @@ import {
   Home, 
   Check, 
   ArrowUpRight, 
-  MessageSquare,
+  MessageSquare, 
   ShieldCheck 
 } from 'lucide-react';
 
@@ -47,21 +47,21 @@ export const ServiceCard = ({ service }) => {
   };
 
   return (
-    <div className="group relative flex flex-col justify-between rounded-2xl bg-midnight-950/80 light:bg-white border border-white/10 light:border-slate-200 hover:border-flame-500/50 light:hover:border-flame-500 p-6 transition-all duration-300 hover:shadow-glow-orange hover:-translate-y-1">
+    <div className="group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-midnight-950 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 dark:hover:border-flame-500 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       
       {/* Top Header */}
       <div>
         <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-flame-500/10 light:bg-orange-50 border border-flame-500/30 flex items-center justify-center text-flame-500 group-hover:bg-gradient-to-r group-hover:from-flame-500 group-hover:to-crimson-600 group-hover:text-white transition-all duration-300 shadow-sm">
+          <div className="w-12 h-12 rounded-xl bg-flame-50 dark:bg-flame-500/10 border border-flame-200 dark:border-flame-500/30 flex items-center justify-center text-flame-600 dark:text-flame-400 group-hover:bg-gradient-to-r group-hover:from-flame-500 group-hover:to-crimson-600 group-hover:text-white transition-all duration-300 shadow-xs">
             <IconComponent className="w-6 h-6" />
           </div>
 
           <div className="flex flex-col items-end gap-1">
-            <span className="text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full bg-white/5 light:bg-slate-100 border border-white/10 light:border-slate-200 text-slate-300 light:text-slate-600">
+            <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
               {modeBadgeText()}
             </span>
             {service.badge && (
-              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-flame-500/15 light:bg-orange-100 text-flame-400 light:text-orange-700 border border-flame-500/30">
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-flame-100 dark:bg-flame-500/15 text-flame-800 dark:text-flame-300 border border-flame-200 dark:border-flame-500/30">
                 {service.badge}
               </span>
             )}
@@ -69,20 +69,20 @@ export const ServiceCard = ({ service }) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-white light:text-slate-900 group-hover:text-flame-500 light:group-hover:text-flame-600 transition-colors leading-snug">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-flame-600 dark:group-hover:text-flame-400 transition-colors leading-snug">
           {content.title}
         </h3>
 
         {/* Short Description */}
-        <p className="mt-2 text-sm text-slate-300 light:text-slate-600 leading-relaxed">
+        <p className="mt-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
           {content.shortDesc}
         </p>
 
         {/* Bullet Features */}
-        <ul className="mt-4 space-y-2 text-xs text-slate-300 light:text-slate-600 border-t border-white/5 light:border-slate-100 pt-4">
+        <ul className="mt-4 space-y-2 text-xs text-slate-700 dark:text-slate-300 border-t border-slate-100 dark:border-white/5 pt-4">
           {content.features.map((feature, idx) => (
             <li key={idx} className="flex items-start gap-2">
-              <Check className="w-4 h-4 text-emerald-400 light:text-emerald-600 shrink-0 mt-0.5" />
+              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <span>{feature}</span>
             </li>
           ))}
@@ -90,14 +90,14 @@ export const ServiceCard = ({ service }) => {
       </div>
 
       {/* Card Footer: Starting Price & WhatsApp Button */}
-      <div className="mt-6 pt-4 border-t border-white/10 light:border-slate-200 flex items-center justify-between gap-3">
+      <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between gap-3">
         <div>
-          <span className="block text-[11px] text-slate-400 light:text-slate-500 font-medium">
+          <span className="block text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
             {t('services.startingFrom')}
           </span>
-          <span className="text-xl font-extrabold text-white light:text-slate-900 font-mono">
+          <span className="text-xl font-extrabold text-slate-900 dark:text-white font-mono">
             ₹{service.startingPrice}
-            <span className="text-xs text-slate-400 light:text-slate-500 font-sans font-normal ml-0.5">*</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-sans font-normal ml-0.5">*</span>
           </span>
         </div>
 
@@ -105,10 +105,10 @@ export const ServiceCard = ({ service }) => {
           href={getServiceBookingLink(content.title, language)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-white/10 light:bg-slate-900 hover:bg-gradient-to-r hover:from-flame-500 hover:to-crimson-600 border border-white/15 light:border-slate-700 rounded-lg transition-all duration-200 shadow-sm"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-slate-900 hover:bg-gradient-to-r hover:from-flame-500 hover:to-crimson-600 dark:bg-white/10 dark:hover:bg-gradient-to-r dark:hover:from-flame-500 dark:hover:to-crimson-600 rounded-lg transition-all duration-200 shadow-sm"
           aria-label={`Book ${content.title} on WhatsApp`}
         >
-          <MessageSquare className="w-3.5 h-3.5 fill-current text-emerald-400 light:text-emerald-300 group-hover:text-white" />
+          <MessageSquare className="w-3.5 h-3.5 fill-current text-emerald-400" />
           <span>{t('services.bookService')}</span>
         </a>
       </div>

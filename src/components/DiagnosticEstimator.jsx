@@ -27,11 +27,11 @@ export const DiagnosticEstimator = () => {
   const [selectedMode, setSelectedMode] = useState('doorstep');
 
   const devices = [
-    { id: 'laptop', label: 'Laptop', icon: Laptop, color: 'text-electric-500' },
-    { id: 'desktop', label: 'Desktop PC', icon: Monitor, color: 'text-flame-500' },
-    { id: 'android', label: 'Android Phone', icon: Smartphone, color: 'text-emerald-500' },
-    { id: 'iphone', label: 'iPhone / iPad', icon: Apple, color: 'text-cyan-400' },
-    { id: 'network', label: 'Wi-Fi & Printer', icon: Wifi, color: 'text-purple-400' },
+    { id: 'laptop', label: 'Laptop', icon: Laptop, color: 'text-flame-600 dark:text-flame-400' },
+    { id: 'desktop', label: 'Desktop PC', icon: Monitor, color: 'text-electric-600 dark:text-electric-400' },
+    { id: 'android', label: 'Android Phone', icon: Smartphone, color: 'text-emerald-600 dark:text-emerald-400' },
+    { id: 'iphone', label: 'iPhone / iPad', icon: Apple, color: 'text-purple-600 dark:text-cyan-400' },
+    { id: 'network', label: 'Wi-Fi & Printer', icon: Wifi, color: 'text-blue-600 dark:text-purple-400' },
   ];
 
   const issueMatrix = {
@@ -84,7 +84,7 @@ export const DiagnosticEstimator = () => {
     : `Hello Raja ji (MrTech Care),\nI checked my issue on your instant diagnostic tool:\n📱 Device: *${selectedDeviceObj?.label}*\n⚠️ Issue: *${activeIssueObj?.name}*\n📍 Mode: *${selectedMode === 'doorstep' ? 'Doorstep (Delhi NCR)' : 'Remote (Pan-India)'}*\n💰 Estimated Base: ₹${activeIssueObj?.price}\n\nPlease confirm availability and next steps.`;
 
   return (
-    <section id="estimator" className="py-20 lg:py-24 relative bg-midnight-950 dark:bg-midnight-950 light:bg-slate-50 border-t border-white/5 transition-colors">
+    <section id="estimator" className="py-16 lg:py-20 relative bg-slate-50 dark:bg-midnight-950 border-t border-slate-200 dark:border-white/5 transition-colors duration-200">
       
       {/* Background Accent Gradients */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-flame-500/10 blur-[150px] pointer-events-none rounded-full" />
@@ -93,17 +93,17 @@ export const DiagnosticEstimator = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-flame-500/10 border border-flame-500/30 text-flame-500 dark:text-flame-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Calculator className="w-3.5 h-3.5" />
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-flame-100 dark:bg-flame-500/15 border border-flame-200 dark:border-flame-500/30 text-flame-700 dark:text-flame-400 text-xs font-bold uppercase tracking-wider mb-2.5">
+            <Calculator className="w-3.5 h-3.5 text-flame-600 dark:text-flame-400" />
             <span>{t('estimator.badge')}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             {t('estimator.title')}
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-slate-300 light:text-slate-600">
+          <p className="mt-2 text-base text-slate-600 dark:text-slate-300">
             {t('estimator.subtitle')}
           </p>
         </div>
@@ -112,11 +112,11 @@ export const DiagnosticEstimator = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Controls Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5">
             
             {/* 1. Device Selection Pills */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-midnight-900/90 light:bg-white border border-white/10 light:border-slate-200 shadow-card-elevated">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 light:text-slate-500 mb-3">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
                 {t('estimator.selectDevice')}
               </label>
 
@@ -131,12 +131,12 @@ export const DiagnosticEstimator = () => {
                       type="button"
                       className={`flex items-center gap-2.5 p-3 rounded-xl border text-left transition-all ${
                         isSelected
-                          ? 'bg-electric-500/15 light:bg-electric-50 border-electric-500 text-white light:text-electric-700 shadow-glow-sm'
-                          : 'bg-midnight-950/60 light:bg-slate-50 border-white/5 light:border-slate-200 text-slate-300 light:text-slate-700 hover:border-white/20'
+                          ? 'bg-flame-50 dark:bg-flame-500/15 border-flame-500 text-flame-900 dark:text-white font-bold shadow-sm'
+                          : 'bg-slate-50 dark:bg-midnight-950 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/20'
                       }`}
                     >
                       <Icon className={`w-5 h-5 ${dev.color} shrink-0`} />
-                      <span className="text-xs sm:text-sm font-semibold">{dev.label}</span>
+                      <span className="text-xs sm:text-sm">{dev.label}</span>
                     </button>
                   );
                 })}
@@ -144,8 +144,8 @@ export const DiagnosticEstimator = () => {
             </div>
 
             {/* 2. Issue Selection Radio List */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-midnight-900/90 light:bg-white border border-white/10 light:border-slate-200 shadow-card-elevated">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 light:text-slate-500 mb-3">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
                 {t('estimator.selectIssue')}
               </label>
 
@@ -158,19 +158,19 @@ export const DiagnosticEstimator = () => {
                       onClick={() => setSelectedIssue(issue.id)}
                       className={`flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
                         isSelected
-                          ? 'bg-gradient-to-r from-electric-500/15 to-flame-500/15 light:from-electric-50 light:to-orange-50 border-flame-500 text-white light:text-slate-900 shadow-sm'
-                          : 'bg-midnight-950/60 light:bg-slate-50 border-white/5 light:border-slate-200 text-slate-300 light:text-slate-700 hover:bg-white/5 light:hover:bg-slate-100'
+                          ? 'bg-flame-50/80 dark:bg-flame-500/15 border-flame-500 text-slate-900 dark:text-white font-semibold shadow-xs'
+                          : 'bg-slate-50 dark:bg-midnight-950 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-midnight-800'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                          isSelected ? 'border-flame-500 bg-flame-500' : 'border-slate-500'
+                        <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          isSelected ? 'border-flame-600 bg-flame-500' : 'border-slate-400 dark:border-slate-600'
                         }`}>
                           {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-white"></span>}
                         </span>
-                        <span className="text-xs sm:text-sm font-medium">{issue.name}</span>
+                        <span className="text-xs sm:text-sm">{issue.name}</span>
                       </div>
-                      <span className="font-mono text-xs font-bold text-flame-400 light:text-flame-600 shrink-0 ml-2">
+                      <span className="font-mono text-xs font-bold text-flame-600 dark:text-flame-400 shrink-0 ml-2">
                         Starts ₹{issue.price}
                       </span>
                     </div>
@@ -180,8 +180,8 @@ export const DiagnosticEstimator = () => {
             </div>
 
             {/* 3. Service Mode Preference */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-midnight-900/90 light:bg-white border border-white/10 light:border-slate-200 shadow-card-elevated">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 light:text-slate-500 mb-3">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
                 {t('estimator.selectMode')}
               </label>
 
@@ -191,14 +191,14 @@ export const DiagnosticEstimator = () => {
                   onClick={() => setSelectedMode('doorstep')}
                   className={`flex items-center gap-3 p-3.5 rounded-xl border text-left transition-all ${
                     selectedMode === 'doorstep'
-                      ? 'bg-flame-500/15 light:bg-orange-50 border-flame-500 text-white light:text-orange-900 shadow-glow-orange'
-                      : 'bg-midnight-950/60 light:bg-slate-50 border-white/5 light:border-slate-200 text-slate-300 light:text-slate-700'
+                      ? 'bg-flame-50 dark:bg-flame-500/15 border-flame-500 text-flame-900 dark:text-white font-bold shadow-xs'
+                      : 'bg-slate-50 dark:bg-midnight-950 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  <MapPin className="w-5 h-5 text-flame-500 shrink-0" />
+                  <MapPin className="w-5 h-5 text-flame-600 dark:text-flame-400 shrink-0" />
                   <div>
                     <span className="block text-xs sm:text-sm font-bold">Doorstep Visit</span>
-                    <span className="text-[11px] text-slate-400 light:text-slate-500">Delhi, Noida, Ghaziabad, Gr. Noida</span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400">Delhi, Noida, Ghaziabad, Gr. Noida</span>
                   </div>
                 </button>
 
@@ -207,14 +207,14 @@ export const DiagnosticEstimator = () => {
                   onClick={() => setSelectedMode('remote')}
                   className={`flex items-center gap-3 p-3.5 rounded-xl border text-left transition-all ${
                     selectedMode === 'remote'
-                      ? 'bg-electric-500/15 light:bg-blue-50 border-electric-500 text-white light:text-blue-900 shadow-glow-sm'
-                      : 'bg-midnight-950/60 light:bg-slate-50 border-white/5 light:border-slate-200 text-slate-300 light:text-slate-700'
+                      ? 'bg-electric-50 dark:bg-electric-500/15 border-electric-500 text-electric-900 dark:text-white font-bold shadow-xs'
+                      : 'bg-slate-50 dark:bg-midnight-950 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  <Globe2 className="w-5 h-5 text-electric-400 shrink-0" />
+                  <Globe2 className="w-5 h-5 text-electric-600 dark:text-electric-400 shrink-0" />
                   <div>
                     <span className="block text-xs sm:text-sm font-bold">Remote Online Support</span>
-                    <span className="text-[11px] text-slate-400 light:text-slate-500">AnyDesk / TeamViewer (Pan-India)</span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400">AnyDesk / TeamViewer (Pan-India)</span>
                   </div>
                 </button>
               </div>
@@ -224,58 +224,58 @@ export const DiagnosticEstimator = () => {
 
           {/* Dynamic Result Summary Column (5 cols) */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="relative rounded-2xl bg-gradient-to-b from-midnight-900 via-midnight-950 to-midnight-900 light:from-white light:to-slate-50 border-2 border-flame-500/40 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+            <div className="relative rounded-2xl bg-white dark:bg-midnight-900 border-2 border-flame-500/50 p-6 sm:p-7 shadow-xl backdrop-blur-xl">
               
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 light:border-slate-200">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-flame-400 light:text-flame-600 flex items-center gap-1.5">
+              <div className="flex items-center justify-between pb-3.5 border-b border-slate-200 dark:border-white/10">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-flame-600 dark:text-flame-400 flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4" />
                   {t('estimator.resultTitle')}
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 light:text-emerald-700 border border-emerald-500/30">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30 font-bold">
                   Instant Quote
                 </span>
               </div>
 
               {/* Selected Specs */}
-              <div className="mt-5 space-y-3 font-mono text-xs">
-                <div className="flex items-center justify-between text-slate-400 light:text-slate-500">
+              <div className="mt-4 space-y-2.5 font-mono text-xs">
+                <div className="flex items-center justify-between text-slate-600 dark:text-slate-400">
                   <span>Selected Device:</span>
-                  <span className="text-white light:text-slate-900 font-bold">{selectedDeviceObj?.label}</span>
+                  <span className="text-slate-900 dark:text-white font-bold">{selectedDeviceObj?.label}</span>
                 </div>
 
-                <div className="flex items-start justify-between gap-2 text-slate-400 light:text-slate-500">
-                  <span className="shrink-0">Identified Symptom:</span>
-                  <span className="text-right text-slate-200 light:text-slate-800 font-medium">{activeIssueObj?.name}</span>
+                <div className="flex items-start justify-between gap-2 text-slate-600 dark:text-slate-400">
+                  <span className="shrink-0">Identified Issue:</span>
+                  <span className="text-right text-slate-900 dark:text-slate-200 font-medium">{activeIssueObj?.name}</span>
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400 light:text-slate-500">
+                <div className="flex items-center justify-between text-slate-600 dark:text-slate-400">
                   <span>Service Mode:</span>
-                  <span className="text-electric-400 light:text-electric-600 font-semibold">
+                  <span className="text-flame-600 dark:text-flame-400 font-bold">
                     {selectedMode === 'doorstep' ? 'Doorstep (Delhi NCR)' : 'Remote Pan-India'}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400 light:text-slate-500">
+                <div className="flex items-center justify-between text-slate-600 dark:text-slate-400">
                   <span>Estimated Time:</span>
-                  <span className="text-emerald-400 light:text-emerald-600 font-semibold">{activeIssueObj?.time}</span>
+                  <span className="text-emerald-700 dark:text-emerald-400 font-bold">{activeIssueObj?.time}</span>
                 </div>
               </div>
 
               {/* Big Price Callout */}
-              <div className="my-6 p-4 rounded-xl bg-flame-500/10 light:bg-orange-50 border border-flame-500/30 flex items-baseline justify-between">
+              <div className="my-5 p-4 rounded-xl bg-flame-50 dark:bg-flame-500/10 border border-flame-200 dark:border-flame-500/30 flex items-baseline justify-between">
                 <div>
-                  <span className="block text-[11px] text-slate-400 light:text-slate-600 uppercase font-semibold">
+                  <span className="block text-[11px] text-slate-600 dark:text-slate-400 uppercase font-bold">
                     {t('estimator.baseFee')}
                   </span>
-                  <span className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 font-mono">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-mono">
                     ₹{activeIssueObj?.price}
                   </span>
-                  <span className="text-xs text-slate-400 ml-1 font-normal">*base labor</span>
+                  <span className="text-xs text-slate-500 ml-1 font-normal">*base labor</span>
                 </div>
 
                 <div className="text-right">
-                  <span className="inline-block text-[10px] font-mono text-emerald-400 light:text-emerald-700 bg-emerald-500/10 px-2 py-0.5 rounded">
-                    Zero Extra Hidden Fee
+                  <span className="inline-block text-[10px] font-mono font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-500/20">
+                    Zero Hidden Fee
                   </span>
                 </div>
               </div>
@@ -285,14 +285,14 @@ export const DiagnosticEstimator = () => {
                 href={createWhatsAppLink(bookingMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-gradient-to-r from-flame-500 to-crimson-600 hover:from-flame-600 hover:to-crimson-700 text-white font-bold text-sm sm:text-base shadow-glow-orange active:scale-98 transition-all"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-gradient-to-r from-flame-500 to-crimson-600 hover:from-flame-600 hover:to-crimson-700 text-white font-bold text-sm sm:text-base shadow-md active:scale-98 transition-all"
               >
                 <MessageSquare className="w-4 h-4 fill-current text-white" />
                 <span>{t('estimator.actionBook')}</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <p className="mt-4 text-[11px] text-slate-400 light:text-slate-500 text-center leading-normal">
+              <p className="mt-3.5 text-[11px] text-slate-500 dark:text-slate-400 text-center leading-normal">
                 ℹ️ {t('estimator.safetyNote')}
               </p>
 
