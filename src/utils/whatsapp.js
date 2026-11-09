@@ -7,12 +7,13 @@ export const BUSINESS_NAME = 'MrTech Care';
 export const TAGLINE = 'Your Tech. Our Care.';
 
 /**
- * Configurable Google Business review link.
- * Can be overridden via environment variable VITE_GOOGLE_BUSINESS_REVIEW_URL.
+ * Official Google Business profile review portal link.
+ * Defaults to the verified shortlink: https://share.google/GWaxGBHSpVdhsN36J
+ * Can also be overridden via environment variable VITE_GOOGLE_BUSINESS_REVIEW_URL.
  */
 export const GOOGLE_BUSINESS_REVIEW_URL = 
   (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_GOOGLE_BUSINESS_REVIEW_URL) 
-    || 'https://search.google.com/local/writereview?placeid=mrtechcare-review';
+    || 'https://share.google/GWaxGBHSpVdhsN36J';
 
 
 /**
