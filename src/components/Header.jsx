@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import { BrandLogo } from './BrandLogo';
-import { DISPLAY_PHONE, OWNER_NAME, createWhatsAppLink } from '../utils/whatsapp';
+import { DISPLAY_PHONE, TEAM_NAME, createWhatsAppLink } from '../utils/whatsapp';
 import { 
   Menu, 
   X, 
@@ -17,20 +18,26 @@ import {
   Camera, 
   UserCheck, 
   LayoutGrid,
-  CheckCircle2
+  CheckCircle2,
+  FileText,
+  Star,
+  ShieldCheck
 } from 'lucide-react';
 
-export const Header = ({ activeTab, onTabChange }) => {
+export const Header = ({ activeTab, onTabChange, onOpenPortal }) => {
   const { language, toggleLanguage, t } = useLanguage();
   const { theme, toggleTheme, isDark } = useTheme();
+  const { user, isAuthenticated } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const tabs = [
     { id: 'overview', label: language === 'hi' ? 'ओवरव्यू' : 'Overview', icon: LayoutGrid },
-    { id: 'services', label: language === 'hi' ? 'सेवाएं' : 'Services (11)', icon: Wrench },
-    { id: 'pricing', label: language === 'hi' ? 'मूल्य सूची' : 'Pricing & Cost', icon: Tag },
+    { id: 'services', label: language === 'hi' ? 'सेवाएं (30)' : 'Services (30)', icon: Wrench },
+    { id: 'pricing', label: language === 'hi' ? 'मूल्य सूची' : 'Pricing', icon: Tag },
+    { id: 'quotes', label: language === 'hi' ? 'कोटेशन' : 'Quotations', icon: FileText },
     { id: 'coverage', label: language === 'hi' ? 'कवरेज' : 'Coverage', icon: Globe2 },
     { id: 'gallery', label: language === 'hi' ? 'फोटो लैब' : 'Photo Lab', icon: Camera },
+    { id: 'feedback', label: language === 'hi' ? 'समीक्षाएं' : 'Feedback', icon: Star },
     { id: 'contact', label: language === 'hi' ? 'संपर्क' : 'Contact', icon: UserCheck },
   ];
 
@@ -41,8 +48,8 @@ export const Header = ({ activeTab, onTabChange }) => {
   };
 
   const defaultWhatsAppMsg = language === 'hi'
-    ? 'नमस्ते राजा जी, मुझे अपने डिवाइस रिपेयर / टेक्निकल सपोर्ट के बारे में बात करनी है।'
-    : 'Hello Raja ji, I need assistance with computer / mobile repair support.';
+    ? 'नमस्ते Team MrTech Care, मुझे अपने डिवाइस रिपेयर / टेक्निकल सपोर्ट के बारे में बात करनी है।'
+    : 'Hello Team MrTech Care, I need assistance with technical support / service.';
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-midnight-950 border-b border-slate-200 dark:border-white/10 shadow-xs transition-colors duration-200">
@@ -159,6 +166,31 @@ export const Header = ({ activeTab, onTabChange }) => {
               <span>{language === 'en' ? 'हिन्दी' : 'EN'}</span>
             </button>
 
+            {/* Customer Portal / Account Button */}
+            <button
+              onClick={onOpenPortal}
+              type="button"
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 ${
+                isAuthenticated
+                  ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30'
+                  : 'bg-slate-100 dark:bg-midnight-900 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10'
+              }`}
+              title={isAuthenticated ? 'Logged In - View Service History' : 'Customer Login & Track Repairs'}
+            >
+              {isAuthenticated ? (
+                <>
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="hidden sm:inline font-mono">{user?.phone ? user.phone.slice(-4) : 'Account'}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </>
+              ) : (
+                <>
+                  <UserCheck className="w-3.5 h-3.5 text-flame-500" />
+                  <span className="hidden sm:inline">{language === 'hi' ? 'लॉगिन' : 'Portal'}</span>
+                </>
+              )}
+            </button>
+
             {/* WhatsApp CTA */}
             <a
               href={createWhatsAppLink(defaultWhatsAppMsg)}
@@ -239,6 +271,18 @@ export const Header = ({ activeTab, onTabChange }) => {
           </div>
 
           <div className="mt-4 pt-3 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2.5">
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                onOpenPortal();
+              }}
+              type="button"
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-bold rounded-xl border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-midnight-900 text-slate-800 dark:text-slate-200 shadow-xs"
+            >
+              <ShieldCheck className="w-4 h-4 text-flame-500" />
+              <span>{isAuthenticated ? `Logged In (${user?.phone || 'Customer'})` : (language === 'hi' ? 'ग्राहक पोर्टल एवं सेवा इतिहास' : 'Customer Portal & Service History')}</span>
+            </button>
+
             <a
               href={createWhatsAppLink(defaultWhatsAppMsg)}
               target="_blank"
@@ -250,7 +294,7 @@ export const Header = ({ activeTab, onTabChange }) => {
             </a>
 
             <div className="flex items-center justify-between text-xs text-slate-500 px-1 pt-1">
-              <span>{OWNER_NAME} — Delhi NCR</span>
+              <span>{TEAM_NAME} — Delhi NCR</span>
               <a href="tel:+919990946044" className="text-flame-600 dark:text-flame-400 font-bold">
                 {DISPLAY_PHONE}
               </a>

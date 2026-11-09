@@ -36,30 +36,31 @@ export const DiagnosticEstimator = () => {
 
   const issueMatrix = {
     laptop: [
-      { id: 'slow', name: 'Slow Speed / Freezing (Needs SSD/RAM)', price: 299, time: '40 - 60 mins', mode: 'doorstep' },
+      { id: 'slow', name: 'Slow Speed / Freezing (Needs SSD/RAM)', price: 399, time: '40 - 60 mins', mode: 'doorstep' },
       { id: 'windows', name: 'Windows Blue Screen / Boot Loop', price: 499, time: '45 - 90 mins', mode: 'both' },
-      { id: 'thermal', name: 'Overheating / Fan Noise / Shutdown', price: 299, time: '45 - 60 mins', mode: 'doorstep' },
-      { id: 'screen', name: 'Broken Screen / Display Flickering', price: 299, time: 'Same-day inspection', mode: 'doorstep' },
+      { id: 'thermal', name: 'Overheating / Fan Noise / Shutdown', price: 399, time: '45 - 60 mins', mode: 'doorstep' },
+      { id: 'screen', name: 'Broken Screen / Display Flickering', price: 399, time: 'Same-day inspection', mode: 'doorstep' },
       { id: 'driver', name: 'Sound, Wi-Fi or Driver Missing', price: 199, time: '20 - 30 mins', mode: 'remote' },
     ],
     desktop: [
-      { id: 'boot', name: 'No Display / Won\'t Turn On', price: 299, time: '30 - 60 mins', mode: 'doorstep' },
+      { id: 'boot', name: 'No Display / Won\'t Turn On', price: 399, time: '30 - 60 mins', mode: 'doorstep' },
       { id: 'windows', name: 'Windows 10 / 11 Clean Installation', price: 499, time: '45 - 75 mins', mode: 'both' },
-      { id: 'upgrade', name: 'High-Speed SSD & RAM Boost', price: 299, time: '30 - 45 mins', mode: 'doorstep' },
+      { id: 'upgrade', name: 'High-Speed SSD & RAM Boost', price: 399, time: '30 - 45 mins', mode: 'doorstep' },
       { id: 'assembly', name: 'Custom PC Assembly & Cable Work', price: 499, time: '1 - 2 hours', mode: 'doorstep' },
       { id: 'remote-bug', name: 'Software Crash / Malfunctioning Apps', price: 199, time: '20 - 40 mins', mode: 'remote' },
     ],
     android: [
-      { id: 'bootloop', name: 'Stuck on Logo / Bootloop', price: 299, time: '30 - 60 mins', mode: 'both' },
-      { id: 'stockrom', name: 'Official Stock Firmware Flashing', price: 299, time: '40 - 60 mins', mode: 'both' },
-      { id: 'battery', name: 'Battery Draining / Charging Port', price: 299, time: 'Physical check', mode: 'doorstep' },
-      { id: 'screen', name: 'Screen / Touch Digitizer Check', price: 299, time: 'Same day', mode: 'doorstep' },
+      { id: 'bootloop', name: 'Stuck on Logo / Bootloop Recovery', price: 499, time: '30 - 60 mins', mode: 'both' },
+      { id: 'stockrom', name: 'Official Stock Firmware Flashing', price: 599, time: '40 - 60 mins', mode: 'both' },
+      { id: 'customrom', name: 'Verified Custom ROM Installation', price: 599, time: '45 - 75 mins', mode: 'both' },
+      { id: 'battery', name: 'Battery Draining / Charging Port', price: 399, time: 'Physical check', mode: 'doorstep' },
+      { id: 'screen', name: 'Screen / Touch Digitizer Check', price: 399, time: 'Same day', mode: 'doorstep' },
     ],
     iphone: [
-      { id: 'applelogo', name: 'Stuck on White Apple Logo Loop', price: 299, time: '30 - 60 mins', mode: 'both' },
-      { id: 'itunes', name: 'Recovery Mode / iTunes Error Codes', price: 299, time: '30 - 50 mins', mode: 'both' },
-      { id: 'iosupdate', name: 'iOS Update Failure Diagnosis', price: 299, time: '30 - 45 mins', mode: 'both' },
-      { id: 'hardware', name: 'Display or Battery Evaluation', price: 299, time: 'Same day inspection', mode: 'doorstep' },
+      { id: 'applelogo', name: 'Stuck on White Apple Logo Loop', price: 699, time: '30 - 60 mins', mode: 'both' },
+      { id: 'itunes', name: 'Recovery Mode / iTunes Error Codes', price: 699, time: '30 - 50 mins', mode: 'both' },
+      { id: 'iosupdate', name: 'iOS Update Failure Diagnosis', price: 699, time: '30 - 45 mins', mode: 'both' },
+      { id: 'hardware', name: 'Display or Battery Evaluation', price: 399, time: 'Same day inspection', mode: 'doorstep' },
     ],
     network: [
       { id: 'printer', name: 'Wireless / Network Printer Offline', price: 249, time: '20 - 35 mins', mode: 'both' },
@@ -80,8 +81,8 @@ export const DiagnosticEstimator = () => {
   const selectedDeviceObj = devices.find(d => d.id === selectedDevice);
 
   const bookingMessage = language === 'hi'
-    ? `नमस्ते राजा जी (MrTech Care),\nमैंने वेबसाइट के डायग्नोस्टिक टूल से चेक किया:\n📱 डिवाइस: *${selectedDeviceObj?.label}*\n⚠️ समस्या: *${activeIssueObj?.name}*\n📍 मोड: *${selectedMode === 'doorstep' ? 'डोरस्टेप (दिल्ली एनसीआर)' : 'रिमोट (ऑनलाइन भारत)'}*\n💰 अनुमानित बेस: ₹${activeIssueObj?.price}\n\nकृपया मुझे उपलब्धता बताएं।`
-    : `Hello Raja ji (MrTech Care),\nI checked my issue on your instant diagnostic tool:\n📱 Device: *${selectedDeviceObj?.label}*\n⚠️ Issue: *${activeIssueObj?.name}*\n📍 Mode: *${selectedMode === 'doorstep' ? 'Doorstep (Delhi NCR)' : 'Remote (Pan-India)'}*\n💰 Estimated Base: ₹${activeIssueObj?.price}\n\nPlease confirm availability and next steps.`;
+    ? `नमस्ते Team MrTech Care,\nमैंने वेबसाइट के डायग्नोस्टिक टूल से चेक किया:\n📱 डिवाइस: *${selectedDeviceObj?.label}*\n⚠️ समस्या: *${activeIssueObj?.name}*\n📍 मोड: *${selectedMode === 'doorstep' ? 'डोरस्टेप (दिल्ली एनसीआर)' : 'रिमोट (ऑनलाइन भारत)'}*\n💰 अनुमानित बेस: ₹${activeIssueObj?.price}\n\nकृपया मुझे उपलब्धता बताएं।`
+    : `Hello Team MrTech Care,\nI checked my issue on your instant diagnostic tool:\n📱 Device: *${selectedDeviceObj?.label}*\n⚠️ Issue: *${activeIssueObj?.name}*\n📍 Mode: *${selectedMode === 'doorstep' ? 'Doorstep (Delhi NCR)' : 'Remote (Pan-India)'}*\n💰 Estimated Base: ₹${activeIssueObj?.price}\n\nPlease confirm availability and next steps.`;
 
   return (
     <section id="estimator" className="py-16 lg:py-20 relative bg-slate-50 dark:bg-midnight-950 border-t border-slate-200 dark:border-white/5 transition-colors duration-200">

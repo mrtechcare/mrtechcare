@@ -18,8 +18,8 @@ export const Hero = () => {
   const { t, language } = useLanguage();
 
   const heroWhatsAppMsg = language === 'hi'
-    ? 'नमस्ते राजा जी, मुझे अपने सिस्टम की समस्या के समाधान के लिए सर्विस बुक करनी है।'
-    : 'Hello Raja ji, I would like to book a service for my device troubleshooting.';
+    ? 'नमस्ते Team MrTech Care, मुझे अपने सिस्टम की समस्या के समाधान के लिए सर्विस बुक करनी है।'
+    : 'Hello Team MrTech Care, I would like to book a service for my device troubleshooting.';
 
   return (
     <section id="home" className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 overflow-hidden bg-white dark:bg-midnight-950 transition-colors duration-200">
@@ -153,9 +153,9 @@ export const Hero = () => {
                   <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-midnight-900 border border-slate-200 dark:border-white/5 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Terminal className="w-4 h-4 text-electric-600 dark:text-electric-400" />
-                      <span className="text-slate-700 dark:text-slate-300 font-medium">Diagnostic Operator</span>
+                      <span className="text-slate-700 dark:text-slate-300 font-medium">Technical Operations</span>
                     </div>
-                    <span className="text-slate-900 dark:text-white font-bold">Raja Kumar</span>
+                    <span className="text-slate-900 dark:text-white font-bold">Team MrTech Care</span>
                   </div>
 
                   {/* Remote Engine */}

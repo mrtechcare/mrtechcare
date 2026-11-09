@@ -4,13 +4,14 @@ export const pricingPlans = [
     price: 199,
     serviceKey: "Remote Technical Support",
     icon: "Headphones",
+    category: "repair",
     coverage: "Pan-India Online",
     popular: false,
     en: {
       title: "Remote Technical Support",
-      scope: "Single issue resolution via AnyDesk / TeamViewer",
+      scope: "Single incident resolution via AnyDesk or TeamViewer",
       includes: [
-        "Software glitch & bug diagnosis",
+        "Software glitch, registry & bug diagnosis",
         "Driver conflicts & missing audio/video fix",
         "Basic bloatware cleanup & speed optimization",
         "100% secure: you oversee everything on screen"
@@ -30,55 +31,26 @@ export const pricingPlans = [
     }
   },
   {
-    id: "wifi-printer",
-    price: 249,
-    serviceKey: "Wi-Fi & Printer Setup",
-    icon: "Wifi",
-    coverage: "Remote or Doorstep",
-    popular: false,
-    en: {
-      title: "Wi-Fi & Printer Setup",
-      scope: "Configuration for home & small office networks",
-      includes: [
-        "Wi-Fi router configuration & password security",
-        "Wireless & USB printer / scanner driver install",
-        "Network printer sharing across family / office PCs",
-        "Frequent disconnection & IP address conflict fix"
-      ],
-      note: "Doorstep visit travel charges may apply based on location."
-    },
-    hi: {
-      title: "वाई-फाई एवं प्रिंटर सेटअप",
-      scope: "घर और छोटे कार्यालय नेटवर्क के लिए कॉन्फ़िगरेशन",
-      includes: [
-        "वाई-फाई राउटर इंस्टालेशन व पासवर्ड सुरक्षा",
-        "वायरलेस व यूएसबी प्रिंटर/स्कैनर ड्राइवर सेटअप",
-        "नेटवर्क प्रिंटर शेयरिंग (एक से अधिक पीसी पर)",
-        "इंटरनेट डिस्कनेक्ट व IP कन्फ्लिक्ट का समाधान"
-      ],
-      note: "डोरस्टेप विजिट में स्थान के अनुसार न्यूनतम यात्रा शुल्क लागू हो सकता है।"
-    }
-  },
-  {
     id: "doorstep-computer",
-    price: 299,
+    price: 399,
     serviceKey: "Doorstep Computer Service",
     icon: "Home",
+    category: "repair",
     coverage: "Delhi NCR Doorstep",
     popular: true,
     en: {
-      title: "Doorstep Computer Service",
-      scope: "On-site technician visit at your residence or office",
+      title: "Doorstep Computer & Laptop Service",
+      scope: "On-site technician inspection at your residence or office",
       includes: [
         "Comprehensive physical & hardware diagnosis",
         "No-display, restart loops & power issue check",
         "Internal dust cleanup & airflow assessment",
         "Upfront quote before any component replacement"
       ],
-      note: "Base diagnostic visit fee is ₹299. Replacement components charged at actuals."
+      note: "Standard on-site diagnostic visit fee is ₹399. Replacement components quoted at actuals."
     },
     hi: {
-      title: "डोरस्टेप कंप्यूटर सर्विस",
+      title: "डोरस्टेप कंप्यूटर व लैपटॉप सर्विस",
       scope: "घर या दफ्तर पर ऑन-साइट तकनीशियन विजिट",
       includes: [
         "विस्तृत हार्डवेयर व फिजिकल डायग्नोसिस",
@@ -86,67 +58,7 @@ export const pricingPlans = [
         "इंटरनल धूल की सफाई व कूलिंग निरीक्षण",
         "पुर्जे बदलने से पहले स्पष्ट व पक्की कोटेशन"
       ],
-      note: "न्यूनतम डायग्नोस्टिक विजिट शुल्क ₹299 है। नए पार्ट्स का खर्च अलग होगा।"
-    }
-  },
-  {
-    id: "mobile-software",
-    price: 299,
-    serviceKey: "Mobile Software Support",
-    icon: "Smartphone",
-    coverage: "Remote or Doorstep",
-    popular: false,
-    en: {
-      title: "Mobile Software Support",
-      scope: "Legitimate Android & iPhone operating system fixes",
-      includes: [
-        "Official stock firmware flashing (Android)",
-        "Stuck on Apple logo & recovery mode restoration",
-        "System freeze & unresponsive apps resolution",
-        "Safe backup & system restore guidance"
-      ],
-      note: "Legitimate repairs only. No bypass or unauthorized unlocking."
-    },
-    hi: {
-      title: "मोबाइल सॉफ्टवेयर सपोर्ट",
-      scope: "वैध व आधिकारिक एंड्रॉइड और आईफोन ओएस समस्या समाधान",
-      includes: [
-        "आधिकारिक स्टॉक रोम फ्लैशिंग (एंड्रॉइड)",
-        "एप्पल लोगो व रिकवरी मोड में अटके फोन का सुधार",
-        "सिस्टम हैंग और क्रैश हो रहे ऐप्स का समाधान",
-        "सुरक्षित डेटा बैकअप व रीस्टोर मार्गदर्शन"
-      ],
-      note: "केवल प्रामाणिक कार्य। कोई बाईपास या अनधिकृत अनलॉकिंग नहीं की जाती।"
-    }
-  },
-  {
-    id: "laptop-hardware",
-    price: 299,
-    serviceKey: "Laptop Hardware & Upgrades",
-    icon: "Laptop",
-    coverage: "Doorstep Delhi NCR",
-    popular: false,
-    en: {
-      title: "Laptop Hardware & Upgrades",
-      scope: "Component upgrades, thermal service & hardware checks",
-      includes: [
-        "High-speed NVMe / SATA SSD installation & clone",
-        "RAM memory expansion for superfast multitasking",
-        "Deep thermal cleaning & thermal paste refresh",
-        "Screen, battery, keyboard & hinge evaluation"
-      ],
-      note: "Labor starts at ₹299. Cost of SSD/RAM hardware is separate."
-    },
-    hi: {
-      title: "लैपटॉप हार्डवेयर एवं अपग्रेड",
-      scope: "हार्डवेयर अपग्रेड, थर्मल सर्विसिंग और पुर्जों की जांच",
-      includes: [
-        "सुपरफास्ट NVMe / SATA SSD इंस्टालेशन व डेटा क्लोन",
-        "मल्टीटास्किंग और तेज स्पीड के लिए रैम अपग्रेड",
-        "थर्मल क्लीनिंग व हाई-ग्रेड थर्मल पेस्ट सर्विसिंग",
-        "स्क्रीन, बैटरी, कीबोर्ड व हिंज खराबी की जांच"
-      ],
-      note: "लेबर चार्ज ₹299 से शुरू। नए SSD/RAM आदि पुर्जों की लागत अलग होगी।"
+      note: "मानक ऑन-साइट डायग्नोस्टिक विजिट शुल्क ₹399 है। नए पार्ट्स का खर्च अलग होगा।"
     }
   },
   {
@@ -154,18 +66,19 @@ export const pricingPlans = [
     price: 499,
     serviceKey: "Windows Installation & Setup",
     icon: "Monitor",
+    category: "repair",
     coverage: "Doorstep or Remote",
     popular: true,
     en: {
       title: "Windows Installation & Setup",
-      scope: "Full authorized operating system setup with drivers",
+      scope: "Authorized operating system setup with full drivers",
       includes: [
         "Genuine Windows 10 / 11 clean installation",
         "Original driver package & chipset updates",
         "User data backup preservation (where drive permits)",
         "Essential browsers, runtime libraries & security setup"
       ],
-      note: "Standard labor ₹499. Complex multi-drive setups may vary slightly."
+      note: "Standard labor ₹499. Multi-drive arrays or complex configurations quoted upfront."
     },
     hi: {
       title: "विंडोज इंस्टालेशन एवं सेटअप",
@@ -177,6 +90,192 @@ export const pricingPlans = [
         "ज़रूरी ब्राउज़र, रनटाइम लाइब्रेरी और सिक्योरिटी सेटअप"
       ],
       note: "मानक लेबर चार्ज ₹499। मल्टीपल ड्राइव्स व जटिल पार्टीशन पर शुल्क अलग हो सकता है।"
+    }
+  },
+  {
+    id: "android-software-pricing",
+    price: 499,
+    serviceKey: "Android Software Troubleshooting",
+    icon: "Smartphone",
+    category: "mobile",
+    coverage: "Remote or Doorstep",
+    popular: false,
+    en: {
+      title: "Android Software & Bootloop Recovery",
+      scope: "Operating system recovery, bootloop fix, and system repairs",
+      includes: [
+        "Stuck on logo bootloop recovery & cache wipe",
+        "System freeze & unresponsive UI diagnostics",
+        "Safe data backup preservation guidance",
+        "Firmware update crash & brick restoration"
+      ],
+      note: "Starting at ₹499. Legitimate repairs only, no unauthorized unlocking."
+    },
+    hi: {
+      title: "एंड्रॉइड सॉफ्टवेयर एवं बूटलूप रिकवरी",
+      scope: "ऑपरेटिंग सिस्टम रिकवरी, बूटलूप सुधार व सिस्टम रिपेयर",
+      includes: [
+        "लोगो पर अटके फोन का डायग्नोसिस व बूटलूप रिकवरी",
+        "सिस्टम हैंग और क्रैश हो रहे ऐप्स का समाधान",
+        "सुरक्षित डेटा बैकअप मार्गदर्शन व रीस्टोर",
+        "अपडेट फेल होने पर सॉफ्टवेयर री-इंस्टालेशन"
+      ],
+      note: "शुरुआती दर ₹499। केवल प्रामाणिक कार्य, कोई अनधिकृत अनलॉकिंग नहीं।"
+    }
+  },
+  {
+    id: "apple-software-pricing",
+    price: 699,
+    serviceKey: "iPhone Software Troubleshooting",
+    icon: "Smartphone",
+    category: "mobile",
+    coverage: "Remote or Doorstep",
+    popular: false,
+    en: {
+      title: "Apple iPhone & iPad Software Support",
+      scope: "iOS recovery, stuck on Apple logo, and error code fixes",
+      includes: [
+        "Stuck on Apple logo loop & recovery mode restore",
+        "iTunes & Apple Devices restore error diagnostics",
+        "iOS clean update & storage recovery assistance",
+        "iCloud sync guidance & local backup setup"
+      ],
+      note: "Starting at ₹699. Hardware faults or physical board issues evaluated separately."
+    },
+    hi: {
+      title: "एप्पल आईफोन व आईपैड सॉफ्टवेयर सपोर्ट",
+      scope: "iOS रिकवरी, एप्पल लोगो लूप व आईट्यून्स एरर कोड सुधार",
+      includes: [
+        "एप्पल लोगो व रिकवरी मोड में अटके डिवाइस का सुधार",
+        "iTunes / Apple Devices रिस्टोर एरर कोड का समाधान",
+        "iOS अपडेट विफलता सुधार व सुरक्षित क्लीन रीस्टोर",
+        "आईक्लाउड सिंक मार्गदर्शन व लोकल बैकअप सहायता"
+      ],
+      note: "शुरुआती दर ₹699। हार्डवेयर खराबी की जांच अलग से की जाती है।"
+    }
+  },
+  {
+    id: "firmware-flashing-pricing",
+    price: 599,
+    serviceKey: "Firmware Flashing & Custom ROM",
+    icon: "Terminal",
+    category: "mobile",
+    coverage: "Remote or Doorstep",
+    popular: false,
+    en: {
+      title: "Firmware Flashing & Custom ROM",
+      scope: "Official stock firmware flashing and verified ROM setup",
+      includes: [
+        "Official stock ROM flashing via Odin / Fastboot",
+        "Soft-bricked device restoration and partition repair",
+        "Verified custom ROM installation on supported models",
+        "Full pre-flash partition backup & integrity checks"
+      ],
+      note: "Starting at ₹599 for standard supported models."
+    },
+    hi: {
+      title: "फर्मवेयर फ्लैशिंग एवं कस्टम रोम",
+      scope: "आधिकारिक स्टॉक फर्मवेयर फ्लैशिंग व वेरिफाइड रोम सेटअप",
+      includes: [
+        "आधिकारिक स्टॉक रोम फ्लैशिंग (Odin / Fastboot)",
+        "सॉफ्ट-ब्रिक डिवाइस की संपूर्ण रिकवरी",
+        "सपोर्टेड डिवाइसों पर वेरिफाइड कस्टम रोम इंस्टालेशन",
+        "फ्लैश पूर्व पार्टीशन बैकअप व बूटलोडर सुरक्षा जांच"
+      ],
+      note: "मानक सपोर्टेड मॉडल्स के लिए शुरुआती दर ₹599।"
+    }
+  },
+  {
+    id: "amc-hardware-plan",
+    price: 1499,
+    serviceKey: "Computer Hardware Maintenance (AMC)",
+    icon: "Wrench",
+    category: "amc",
+    coverage: "Delhi NCR Doorstep",
+    popular: false,
+    en: {
+      title: "Computer Hardware AMC",
+      scope: "Quarterly physical preventative care per workstation",
+      includes: [
+        "Quarterly ultrasonic fan cleaning & dust removal",
+        "Premium thermal paste repasting on CPU / GPU",
+        "SMPS power stability & capacitor health check",
+        "Discounted component replacement logistics"
+      ],
+      note: "Annual plan starting at ₹1,499/system. Custom fleet pricing for offices."
+    },
+    hi: {
+      title: "कंप्यूटर हार्डवेयर एएमसी (AMC)",
+      scope: "प्रति सिस्टम त्रैमासिक फिजिकल प्रिवेंटिव मेंटेनेंस",
+      includes: [
+        "त्रैमासिक डीप कूलिंग फैन क्लीनिंग व धूल सफाई",
+        "प्रोसेसर और ग्राफिक्स चिप पर प्रीमियम थर्मल पेस्ट",
+        "पावर सप्लाई (SMPS) स्टेबिलिटी व हार्डवेयर हेल्थ जांच",
+        "हार्डवेयर बदलने पर रियायती दरें व प्राथमिकता"
+      ],
+      note: "वार्षिक योजना ₹1,499 प्रति सिस्टम से शुरू। कार्यालयों के लिए कस्टम पैकेज उपलब्ध।"
+    }
+  },
+  {
+    id: "amc-software-plan",
+    price: 1299,
+    serviceKey: "Computer Software Maintenance (AMC)",
+    icon: "ShieldCheck",
+    category: "amc",
+    coverage: "Remote or On-Site",
+    popular: false,
+    en: {
+      title: "Computer Software AMC",
+      scope: "Proactive OS health, driver updates & security sweeps",
+      includes: [
+        "Monthly registry and temporary file cleanup sweeps",
+        "Automated backup health audits for vital data",
+        "Antivirus integrity verification and OS patch checks",
+        "Priority remote support sessions with Team MrTech Care"
+      ],
+      note: "Annual software maintenance plan starting at ₹1,299/system."
+    },
+    hi: {
+      title: "कंप्यूटर सॉफ्टवेयर एएमसी (AMC)",
+      scope: "प्रोएक्टिव ओएस हेल्थ, ड्राइवर अपडेट्स व सिक्योरिटी स्वीप्स",
+      includes: [
+        "मासिक सिस्टम कैशे, ब्लोटवेयर व जंक फाइल्स क्लीनअप",
+        "बिजनेस डेटा बैकअप की नियमित ऑटोमेटेड जांच",
+        "सिक्योरिटी अपडेट्स व एंटीवायरस हेल्थ वेरिफिकेशन",
+        "टीम MrTech Care द्वारा प्राथमिकता रिमोट सहायता"
+      ],
+      note: "वार्षिक सॉफ्टवेयर मेंटेनेंस योजना ₹1,299 प्रति सिस्टम से शुरू।"
+    }
+  },
+  {
+    id: "trading-bot-pricing",
+    price: 6499,
+    serviceKey: "Trading System Development",
+    icon: "TrendingUp",
+    category: "trading",
+    coverage: "Online Technical Service",
+    popular: false,
+    en: {
+      title: "Trading Automation Development",
+      scope: "Custom technical coding for MT4/MT5, Pine Script, and crypto APIs",
+      includes: [
+        "Custom rule-based algorithm programming",
+        "Hard-coded risk controls (stop-loss, max lot, drawdown limiter)",
+        "Historical backtesting data integration",
+        "VPS deployment assistance & webhook relays"
+      ],
+      note: "Technical coding starting at ₹6,499. No financial advice or profit promises."
+    },
+    hi: {
+      title: "ट्रेडिंग ऑटोमेशन सॉफ्टवेयर निर्माण",
+      scope: "MT4/MT5, पाइन स्क्रिप्ट व क्रिप्टो APIs के लिए कस्टम कोडिंग",
+      includes: [
+        "कस्टम नियम-आधारित एल्गोरिदम प्रोग्रामिंग",
+        "हार्ड-कोडेड रिस्क मैनेजमेंट (स्टॉप-लॉस, ड्रॉडाउन सीमा)",
+        "ऐतिहासिक बैक-टेस्टिंग डेटा सिमुलेशन एकीकरण",
+        "VPS सेटअप व वेबहुक अलर्ट रिले एकीकरण"
+      ],
+      note: "तकनीकी कोडिंग दर ₹6,499 से शुरू। कोई वित्तीय परामर्श या लाभ का वादा नहीं।"
     }
   }
 ];

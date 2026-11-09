@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { 
   DISPLAY_PHONE, 
   BUSINESS_EMAIL, 
-  OWNER_NAME, 
+  TEAM_NAME, 
   getFormEnquiryLink, 
   createWhatsAppLink 
 } from '../utils/whatsapp';

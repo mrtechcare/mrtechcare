@@ -16,8 +16,8 @@ export const DoorstepSection = () => {
   const { t, language } = useLanguage();
 
   const doorstepWhatsAppMsg = language === 'hi'
-    ? 'नमस्ते राजा जी, मुझे दिल्ली एनसीआर में डोरस्टेप कंप्यूटर / लैपटॉप रिपेयर के लिए अपॉइंटमेंट बुक करना है।'
-    : 'Hello Raja ji, I want to schedule a doorstep computer / laptop repair visit in Delhi NCR.';
+    ? 'नमस्ते Team MrTech Care, मुझे दिल्ली एनसीआर में डोरस्टेप कंप्यूटर / लैपटॉप रिपेयर के लिए अपॉइंटमेंट बुक करना है।'
+    : 'Hello Team MrTech Care, I want to schedule a doorstep computer / laptop repair visit in Delhi NCR.';
 
   const areas = [
     {

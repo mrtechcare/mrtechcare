@@ -19,8 +19,8 @@ export const RemoteSupportSection = () => {
   const { t, language } = useLanguage();
 
   const remoteWhatsAppMsg = language === 'hi'
-    ? 'नमस्ते राजा जी, मुझे AnyDesk / TeamViewer द्वारा रिमोट टेक्निकल सपोर्ट चाहिए।'
-    : 'Hello Raja ji, I need remote technical support via AnyDesk / TeamViewer.';
+    ? 'नमस्ते Team MrTech Care, मुझे AnyDesk / TeamViewer द्वारा रिमोट टेक्निकल सपोर्ट चाहिए।'
+    : 'Hello Team MrTech Care, I need remote technical support via AnyDesk / TeamViewer.';
 
   const steps = [
     {

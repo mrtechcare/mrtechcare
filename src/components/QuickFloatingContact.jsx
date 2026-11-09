@@ -8,8 +8,8 @@ export const QuickFloatingContact = () => {
   const [isDismissed, setIsDismissed] = useState(false);
 
   const defaultMsg = language === 'hi'
-    ? 'नमस्ते राजा जी, मुझे टेक्निकल सहायता / रिपेयर के बारे में जानकारी चाहिए।'
-    : 'Hello Raja ji, I need help with technical support / repair service.';
+    ? 'नमस्ते Team MrTech Care, मुझे टेक्निकल सहायता / रिपेयर के बारे में जानकारी चाहिए।'
+    : 'Hello Team MrTech Care, I need help with technical support / repair service.';
 
   return (
     <aside 
@@ -39,7 +39,7 @@ export const QuickFloatingContact = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-emerald-400 text-white shadow-xl hover:scale-105 active:scale-95 transition-transform duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-        aria-label="Chat directly with Raja Kumar on WhatsApp"
+        aria-label="Chat directly with Team MrTech Care on WhatsApp"
         title="Chat on WhatsApp (+91 99909 46044)"
       >
         <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-flame-400 rounded-full animate-ping opacity-75"></span>

@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider } from './context/AuthContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { DiagnosticEstimator } from './components/DiagnosticEstimator';
 import { VisualShowcase } from './components/VisualShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { PricingSection } from './components/PricingSection';
+import { QuotationsSection } from './components/QuotationsSection';
+import { FeedbackSection } from './components/FeedbackSection';
 import { RemoteSupportSection } from './components/RemoteSupportSection';
 import { DoorstepSection } from './components/DoorstepSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { QuickFloatingContact } from './components/QuickFloatingContact';
-import { Wrench, Tag, Globe2, UserCheck, ArrowRight } from 'lucide-react';
+import { CustomerPortalModal } from './components/CustomerPortalModal';
+import { Wrench, Tag, Globe2, UserCheck, ArrowRight, FileText, Star } from 'lucide-react';
 
 export function AppContent() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isPortalOpen, setIsPortalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-midnight-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-flame-500 selection:text-white">
       
       {/* Sticky Header with Coverage alert + Navigation + Horizontal Tabs */}
-      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+      <Header 
+        activeTab={activeTab} 
+        onTabChange={setActiveTab} 
+        onOpenPortal={() => setIsPortalOpen(true)} 
+      />
 
       {/* Main Tab Views */}
       <main className="flex-1">
@@ -43,8 +52,8 @@ export function AppContent() {
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-flame-500 transition-all" />
                   </div>
-                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Explore 11 Services</span>
-                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Hardware & Software</span>
+                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Explore 30 Services</span>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Hardware, Software, AI & Trading</span>
                 </button>
 
                 <button
@@ -62,31 +71,31 @@ export function AppContent() {
                 </button>
 
                 <button
-                  onClick={() => setActiveTab('coverage')}
+                  onClick={() => setActiveTab('quotes')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                      <Globe2 className="w-4 h-4" />
+                      <FileText className="w-4 h-4" />
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-500 transition-all" />
                   </div>
-                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Doorstep & Remote</span>
-                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Delhi NCR & India</span>
+                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Corporate & Individual RFQ</span>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Custom Quotations & AMC</span>
                 </button>
 
                 <button
-                  onClick={() => setActiveTab('contact')}
+                  onClick={() => setActiveTab('feedback')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
-                      <UserCheck className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                      <Star className="w-4 h-4" />
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-1 group-hover:text-amber-500 transition-all" />
                   </div>
-                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">About Raja Kumar</span>
-                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">WhatsApp Booking</span>
+                  <span className="block text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Customer Reviews</span>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">Verified Feedback & Google</span>
                 </button>
               </div>
             </div>
@@ -110,6 +119,12 @@ export function AppContent() {
           </div>
         )}
 
+        {activeTab === 'quotes' && (
+          <div className="animate-fadeIn">
+            <QuotationsSection />
+          </div>
+        )}
+
         {activeTab === 'coverage' && (
           <div className="animate-fadeIn">
             <RemoteSupportSection />
@@ -123,6 +138,12 @@ export function AppContent() {
           </div>
         )}
 
+        {activeTab === 'feedback' && (
+          <div className="animate-fadeIn">
+            <FeedbackSection />
+          </div>
+        )}
+
         {activeTab === 'contact' && (
           <div className="animate-fadeIn">
             <AboutSection />
@@ -130,6 +151,13 @@ export function AppContent() {
           </div>
         )}
       </main>
+
+      {/* Customer Account & Service History Portal Modal */}
+      <CustomerPortalModal 
+        isOpen={isPortalOpen} 
+        onClose={() => setIsPortalOpen(false)} 
+        onNavigateToServices={() => setActiveTab('services')} 
+      />
 
       {/* Footer with linked tab handler */}
       <Footer onTabChange={setActiveTab} />
@@ -144,7 +172,9 @@ export function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <AppContent />
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { pricingPlans } from '../data/pricingData';
 import { translations } from '../data/translations';
@@ -12,11 +12,29 @@ import {
   Sparkles,
   Info,
   ShieldAlert,
-  Flame
+  Flame,
+  Wrench,
+  Smartphone,
+  Briefcase,
+  TrendingUp
 } from 'lucide-react';
 
 export const PricingSection = () => {
   const { t, language } = useLanguage();
+  const [pricingCategory, setPricingCategory] = useState('all');
+
+  const pricingCategories = [
+    { id: 'all', label: language === 'hi' ? 'सभी दरें (All)' : 'All Rates' },
+    { id: 'repair', label: language === 'hi' ? 'कंप्यूटर व विंडोज' : 'Computer & Windows', icon: Wrench },
+    { id: 'mobile', label: language === 'hi' ? 'मोबाइल व फर्मवेयर' : 'Mobile & Firmware', icon: Smartphone },
+    { id: 'amc', label: language === 'hi' ? 'एएमसी (AMC)' : 'AMC Maintenance', icon: Briefcase },
+    { id: 'trading', label: language === 'hi' ? 'ट्रेडिंग ऑटोमेशन' : 'Trading Systems', icon: TrendingUp },
+  ];
+
+  const filteredPlans = pricingPlans.filter((plan) => {
+    if (pricingCategory === 'all') return true;
+    return plan.category === pricingCategory;
+  });
 
   return (
     <section id="pricing" className="py-16 lg:py-20 relative bg-slate-50 dark:bg-midnight-950 border-t border-slate-200 dark:border-white/5 transition-colors duration-200">
@@ -42,9 +60,31 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        {/* Pricing Cards Grid (6 Indicative Starting Rates) */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pricingPlans.map((plan) => {
+        {/* Pricing Category Filters */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
+          {pricingCategories.map((cat) => {
+            const isActive = pricingCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setPricingCategory(cat.id)}
+                type="button"
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500 ${
+                  isActive
+                    ? 'bg-gradient-to-r from-flame-500 to-crimson-600 text-white shadow-md'
+                    : 'bg-white dark:bg-midnight-900 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 border border-slate-200 dark:border-white/10 shadow-xs'
+                }`}
+                aria-pressed={isActive}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Pricing Cards Grid */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPlans.map((plan) => {
             const content = plan[language] || plan.en;
 
             return (

@@ -15,7 +15,20 @@ import {
   Check, 
   ArrowUpRight, 
   MessageSquare, 
-  ShieldCheck 
+  ShieldCheck,
+  Globe,
+  Code,
+  Layers,
+  Bot,
+  PhoneCall,
+  TrendingUp,
+  BarChart3,
+  Database,
+  Coins,
+  Briefcase,
+  Sliders,
+  Activity,
+  FileCheck2
 } from 'lucide-react';
 
 const iconMap = {
@@ -29,6 +42,20 @@ const iconMap = {
   Wifi,
   Headphones,
   Home,
+  Globe,
+  Code,
+  Layers,
+  Bot,
+  PhoneCall,
+  TrendingUp,
+  BarChart3,
+  Database,
+  Coins,
+  Briefcase,
+  Sliders,
+  Activity,
+  ShieldCheck,
+  FileCheck2
 };
 
 export const ServiceCard = ({ service }) => {
@@ -42,6 +69,12 @@ export const ServiceCard = ({ service }) => {
     }
     if (service.mode === 'remote') {
       return language === 'hi' ? 'रिमोट (पूरे भारत में)' : 'Remote (Pan-India)';
+    }
+    if (service.mode === 'online') {
+      return language === 'hi' ? 'ऑनलाइन / डिजिटल सेवा' : 'Online / Digital Delivery';
+    }
+    if (service.mode === 'contract') {
+      return language === 'hi' ? 'एएमसी / वार्षिक अनुबंध' : 'AMC / Contractual';
     }
     return language === 'hi' ? 'डोरस्टेप व रिमोट दोनों' : 'Doorstep & Remote';
   };

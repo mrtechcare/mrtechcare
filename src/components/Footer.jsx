@@ -4,7 +4,7 @@ import { BrandLogo } from './BrandLogo';
 import { 
   DISPLAY_PHONE, 
   BUSINESS_EMAIL, 
-  OWNER_NAME, 
+  TEAM_NAME, 
   createWhatsAppLink 
 } from '../utils/whatsapp';
 import { 
@@ -55,8 +55,8 @@ export const Footer = ({ onTabChange }) => {
             </p>
 
             <div className="pt-1 text-xs text-slate-400 font-mono">
-              <span>Technician & Founder: </span>
-              <span className="text-white font-bold">{OWNER_NAME}</span>
+              <span>Operations: </span>
+              <span className="text-white font-bold">{TEAM_NAME}</span>
             </div>
           </div>
 
@@ -88,6 +88,22 @@ export const Footer = ({ onTabChange }) => {
                   className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
                 >
                   {t('nav.pricing')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNav('quotes')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
+                  {language === 'hi' ? 'कोटेशन एवं AMC' : 'Quotations & AMC'}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNav('feedback')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
+                >
+                  {language === 'hi' ? 'ग्राहक समीक्षाएं' : 'Customer Feedback'}
                 </button>
               </li>
               <li>
@@ -174,21 +190,11 @@ export const Footer = ({ onTabChange }) => {
                   {BUSINESS_EMAIL}
                 </a>
               </div>
-
-              <div>
-                <span className="text-slate-400 block font-medium">Official Domain:</span>
-                <a
-                  href="https://mrtechcare.in"
-                  className="text-flame-400 hover:underline font-mono"
-                >
-                  mrtechcare.in
-                </a>
-              </div>
             </div>
 
             <div className="pt-1.5">
               <a
-                href={createWhatsAppLink("Hello Raja ji, I want to inquire about MrTech Care service.")}
+                href={createWhatsAppLink("Hello Team MrTech Care, I want to inquire about MrTech Care services.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors"

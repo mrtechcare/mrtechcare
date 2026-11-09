@@ -38,7 +38,7 @@ export const translations = {
       perks: {
         doorstep: "Doorstep: Delhi, Noida, Ghaziabad & Gr. Noida",
         remote: "Pan-India Remote Support via AnyDesk / TeamViewer",
-        honest: "Direct Operator: Raja Kumar (No Middlemen)",
+        honest: "Direct Support: Team MrTech Care (No Middlemen)",
         secure: "Strict Privacy: No Passwords or OTPs Requested",
       },
       stats: {
@@ -193,8 +193,8 @@ export const translations = {
       badge: "Meet Your Technician",
       title: "Independent, Honest & Reliable Tech Care",
       subtitle: "Direct personal attention from a dedicated technician who treats your devices with genuine care.",
-      lead: "MrTech Care is an independent computer, laptop, and mobile repair and IT support service founded and operated by Raja Kumar in Delhi NCR.",
-      p1: "Unlike impersonal repair aggregators or call centers that outsource work to untracked subcontractors, MrTech Care offers direct, one-on-one technical communication. When you call or text, you speak directly with Raja Kumar.",
+      lead: "MrTech Care is an independent technology services and IT support platform founded by Raja Kumar in Delhi NCR and operated by Team MrTech Care.",
+      p1: "Unlike impersonal repair aggregators or call centers that outsource work to untracked subcontractors, MrTech Care offers direct, one-on-one technical communication. When you call or text, you work directly with our dedicated technical specialists from Team MrTech Care.",
       p2: "Our business is built on practical troubleshooting, transparent communication, reasonable pricing, and true customer satisfaction. We do not invent exaggerated years of experience, fake customer metrics, or corporate jargon.",
       p3: "Every computer, laptop, or mobile entrusted to us is diagnosed with methodic precision. Whether it is reviving an unresponsive laptop, upgrading an older PC with an ultra-fast SSD, configuring a complex home-office network, or solving a stubborn Windows boot loop remotely, we take pride in delivering dependable craftsmanship.",
       valuesTitle: "Core Operating Principles",
@@ -213,7 +213,7 @@ export const translations = {
         },
         {
           title: "Direct Owner Accountability",
-          desc: "No call center queues or support tickets. Direct accountability with Raja Kumar from start to finish."
+          desc: "No call center queues or support tickets. Direct professional accountability with Team MrTech Care from start to finish."
         }
       ]
     },
@@ -259,7 +259,7 @@ export const translations = {
     },
     footer: {
       tagline: "Your Tech. Our Care.",
-      bio: "Independent computer, laptop, mobile repair and IT troubleshooting service by Raja Kumar. Delivering authentic solutions across Delhi NCR and India.",
+      bio: "Independent technology, computer repair and IT troubleshooting service. Delivering authentic solutions across Delhi NCR and India with Team MrTech Care.",
       quickLinks: "Quick Navigation",
       servicesLinks: "Popular Services",
       contactInfo: "Direct Contact",
@@ -309,7 +309,7 @@ export const translations = {
       perks: {
         doorstep: "डोरस्टेप: दिल्ली, नोएडा, गाजियाबाद व ग्रेटर नोएडा",
         remote: "पूरे भारत में AnyDesk / TeamViewer से रिमोट सहायता",
-        honest: "सीधा संपर्क: राजा कुमार (कोई बिचौलिया नहीं)",
+        honest: "सीधा संपर्क: टीम MrTech Care (कोई बिचौलिया नहीं)",
         secure: "पूर्ण गोपनीयता: कभी कोई पासवर्ड या ओटीपी नहीं मांगते",
       },
       stats: {
@@ -464,8 +464,8 @@ export const translations = {
       badge: "अपने तकनीशियन से मिलें",
       title: "ईमानदार, स्वतंत्र और भरोसेमंद टेक केयर",
       subtitle: "एक समर्पित तकनीशियन द्वारा व्यक्तिगत देखभाल, जो आपके डिवाइस को अपनी जिम्मेदारी समझता है।",
-      lead: "MrTech Care दिल्ली एनसीआर में राजा कुमार द्वारा संचालित एक स्वतंत्र कंप्यूटर, लैपटॉप और मोबाइल रिपेयर व आईटी सपोर्ट सेवा है।",
-      p1: "बड़ी अनजान कंपनियों या कॉल सेंटरों के विपरीत, जहां काम को अज्ञात सब-कॉन्ट्रैक्टरों को सौंप दिया जाता है, MrTech Care में आपको सीधा व्यक्तिगत सहयोग मिलता है। जब आप कॉल या मैसेज करते हैं, तो आपकी सीधी बात राजा कुमार से होती है।",
+      lead: "MrTech Care दिल्ली एनसीआर में राजा कुमार द्वारा स्थापित और टीम MrTech Care द्वारा संचालित एक स्वतंत्र टेक्नोलॉजी व आईटी सपोर्ट प्लेटफॉर्म है।",
+      p1: "बड़ी अनजान कंपनियों या कॉल सेंटरों के विपरीत, जहां काम को अज्ञात सब-कॉन्ट्रैक्टरों को सौंप दिया जाता है, MrTech Care में आपको सीधा व्यक्तिगत सहयोग मिलता है। जब आप संपर्क करते हैं, तो आपकी सीधी बात टीम MrTech Care के समर्पित विशेषज्ञों से होती है।",
       p2: "हमारा काम व्यावहारिक समस्या निवारण, पारदर्शी बातचीत, उचित मूल्य और ग्राहकों की सच्ची संतुष्टि पर आधारित है। हम अनुभव के झूठे साल, फर्जी आंकड़े या बनावटी अवार्ड्स का दावा नहीं करते।",
       p3: "चाहे स्लो लैपटॉप को तेज SSD से अपग्रेड करना हो, बंद पड़े कंप्यूटर को चालू करना हो, घर-ऑफिस के नेटवर्क को व्यवस्थित करना हो, या ऑनलाइन रिमोट सपोर्ट से विंडोज एरर ठीक करना हो—हम निष्ठा से काम करते हैं।",
       valuesTitle: "हमारे कार्य सिद्धांत",
@@ -484,7 +484,7 @@ export const translations = {
         },
         {
           title: "सीधी व्यक्तिगत जवाबदेही",
-          desc: "कोई टिकट नंबर या कॉल सेंटर वेटिंग नहीं। काम के हर पहलू के लिए राजा कुमार की सीधी जिम्मेदारी।"
+          desc: "कोई टिकट नंबर या कॉल सेंटर वेटिंग नहीं। काम के हर पहलू के लिए टीम MrTech Care की सीधी जिम्मेदारी।"
         }
       ]
     },
@@ -530,7 +530,7 @@ export const translations = {
     },
     footer: {
       tagline: "आपकी तकनीक, हमारी देखभाल।",
-      bio: "राजा कुमार द्वारा संचालित कंप्यूटर, लैपटॉप और मोबाइल रिपेयर व आईटी सपोर्ट सेवा। दिल्ली एनसीआर में डोरस्टेप और पूरे भारत में रिमोट सहायता।",
+      bio: "टीम MrTech Care द्वारा संचालित टेक्नोलॉजी व आईटी सपोर्ट सेवा। दिल्ली एनसीआर में डोरस्टेप और पूरे भारत में रिमोट सहायता।",
       quickLinks: "त्वरित लिंक",
       servicesLinks: "प्रमुख सेवाएं",
       contactInfo: "सीधा संपर्क",

@@ -98,8 +98,8 @@ export const VisualShowcase = () => {
           {showcaseItems.map((item) => {
             const Icon = item.icon;
             const waInquiry = language === 'hi'
-              ? `नमस्ते राजा जी (MrTech Care), मुझे *${item.title}* के बारे में बात करनी है।`
-              : `Hello Raja ji (MrTech Care), I would like to inquire about *${item.title}*.`;
+              ? `नमस्ते Team MrTech Care, मुझे *${item.title}* के बारे में बात करनी है।`
+              : `Hello Team MrTech Care, I would like to inquire about *${item.title}*.`;
 
             return (
               <div 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { OWNER_NAME, BUSINESS_NAME, DISPLAY_PHONE, BUSINESS_EMAIL } from '../utils/whatsapp';
+import { FOUNDER_NAME, TEAM_NAME, BUSINESS_NAME, DISPLAY_PHONE, BUSINESS_EMAIL } from '../utils/whatsapp';
 import { 
   UserCheck, 
   ShieldCheck, 
@@ -37,10 +37,10 @@ export const AboutSection = () => {
         : 'During remote sessions, everything occurs directly on your screen. You can monitor and terminate the session at any second.'
     },
     {
-      title: language === 'hi' ? 'सीधी व्यक्तिगत जवाबदेही' : 'Direct Owner Accountability',
+      title: language === 'hi' ? 'सीधी व्यक्तिगत जवाबदेही' : 'Direct Professional Accountability',
       desc: language === 'hi'
-        ? 'कोई अज्ञात सब-कॉन्ट्रैक्टर या कॉल सेंटर नहीं। राजा कुमार आपके सिस्टम की शुरुआत से अंत तक सीधी जिम्मेदारी लेते हैं।'
-        : 'No anonymous middlemen or ticket queues. You deal directly with Raja Kumar for diagnosis, service, and follow-up.'
+        ? 'कोई अज्ञात सब-कॉन्ट्रैक्टर या कॉल सेंटर कतार नहीं। टीम MrTech Care के समर्पित विशेषज्ञों द्वारा शुरुआत से अंत तक सीधी जिम्मेदारी।'
+        : 'No anonymous middlemen or ticket queues. You deal directly with dedicated specialists from Team MrTech Care from diagnosis to final testing.'
     }
   ];
 
@@ -91,8 +91,8 @@ export const AboutSection = () => {
             {/* Direct Tech Contact Strip */}
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <span className="block text-xs text-slate-500 dark:text-slate-400 font-semibold">Direct Technician & Owner</span>
-                <span className="text-lg font-bold text-slate-900 dark:text-white font-mono">{OWNER_NAME}</span>
+                <span className="block text-xs text-slate-500 dark:text-slate-400 font-semibold">Founder & Technical Lead</span>
+                <span className="text-lg font-bold text-slate-900 dark:text-white font-mono">{FOUNDER_NAME}</span>
               </div>
               <div className="flex items-center gap-3">
                 <a
