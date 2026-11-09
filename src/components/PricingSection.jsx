@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { pricingPlans } from '../data/pricingData';
+import { translations } from '../data/translations';
 import { getServiceBookingLink } from '../utils/whatsapp';
 import { 
   Check, 
