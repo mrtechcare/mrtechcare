@@ -1,7 +1,28 @@
 // Cloudflare Pages Function: POST /api/quotations
+// Enterprise Quotation & RFP Registration with Cryptographic Uniqueness
+
+function generateQuoteReference(year, quoteType) {
+  const typeTag = quoteType === 'corporate' ? 'CORP' : 'INDV';
+  const rawBytes = new Uint8Array(4);
+  crypto.getRandomValues(rawBytes);
+  const entropy = Array.from(rawBytes).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+  const timeCode = Date.now().toString(36).slice(-4).toUpperCase();
+  return `MTC-${year}-${typeTag}-${timeCode}-${entropy}`;
+}
 
 export async function onRequestPost({ request, env }) {
   try {
+    // 1. Strict Database Availability Check
+    if (!env || !env.DB) {
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: "Quotation registry database is temporarily unavailable. Please request your custom quotation directly via WhatsApp (+91 99909 46044)." 
+      }), {
+        status: 503,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
     const body = await request.json().catch(() => ({}));
     const quoteType = body.quote_type === 'corporate' ? 'corporate' : 'individual';
     const contactPerson = (body.contact_person || '').trim();
@@ -10,6 +31,7 @@ export async function onRequestPost({ request, env }) {
     const servicesRequired = (body.services_required || '').trim();
     const projectDetails = (body.project_details || '').trim();
 
+    // 2. Validate Contact Details
     if (!contactPerson || contactPerson.length < 2) {
       return new Response(JSON.stringify({ success: false, error: "Please provide a valid contact name." }), {
         status: 400,
@@ -31,7 +53,7 @@ export async function onRequestPost({ request, env }) {
       });
     }
 
-    // Corporate specific validation
+    // 3. Corporate RFP specific validation
     const companyName = (body.company_name || '').trim();
     const gstNumber = (body.gst_number || '').trim().toUpperCase();
     const workstationCount = parseInt(body.workstation_count, 10) || 0;
@@ -46,12 +68,19 @@ export async function onRequestPost({ request, env }) {
     }
 
     const year = new Date().getFullYear();
-    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    const quoteNumber = `MTC-${year}-${quoteType.toUpperCase().slice(0, 4)}-${randomSuffix}`;
-    const quoteId = `quote_${Date.now()}_${randomSuffix}`;
     const formattedPhone = `+91${phone}`;
 
-    if (env && env.DB) {
+    // 4. Collision-Proof Reference Generation & Database Insertion
+    let quoteNumber = '';
+    let quoteId = '';
+    let inserted = false;
+    let insertAttempts = 0;
+
+    while (!inserted && insertAttempts < 5) {
+      insertAttempts++;
+      quoteNumber = generateQuoteReference(year, quoteType);
+      quoteId = `quote_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
       try {
         await env.DB.prepare(
           `INSERT INTO quotations (
@@ -62,11 +91,27 @@ export async function onRequestPost({ request, env }) {
         ).bind(
           quoteId, quoteNumber, quoteType, contactPerson, formattedPhone, email,
           companyName || null, gstNumber || null, workstationCount, fleetScope || null,
-          servicesRequired || 'Standard Scope', preferredSla, projectDetails,
+          servicesRequired || 'Standard Scope', preferredSla, projectDetails
         ).run();
+        inserted = true;
       } catch (d1Err) {
-        console.warn("D1 quotation insert error:", d1Err);
+        if (d1Err.message && d1Err.message.toLowerCase().includes('unique')) {
+          // Collision detected: retry loop generates new cryptographic entropy
+          continue;
+        }
+        console.error("D1 quotation insert failed:", d1Err.message);
+        throw d1Err;
       }
+    }
+
+    if (!inserted) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Quotation registry collision. Please try again or reach out directly on WhatsApp."
+      }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      });
     }
 
     return new Response(JSON.stringify({

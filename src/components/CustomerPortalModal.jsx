@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
+import { createWhatsAppLink } from '../utils/whatsapp';
 import { 
   UserCheck, 
   X, 
@@ -78,14 +79,10 @@ export const CustomerPortalModal = ({ isOpen, onClose, onNavigateToServices }) =
 
     try {
       setIsLoading(true);
-      const res = await sendOtp(cleanPhone);
+      await sendOtp(cleanPhone);
       setStep('otp');
       setTimer(300); // 5 minutes
-      if (res.sandboxOtp) {
-        setInfoMessage(`Development Mode OTP: ${res.sandboxOtp}`);
-      } else {
-        setInfoMessage(language === 'hi' ? 'ओटीपी आपके नंबर पर भेज दिया गया है।' : 'Verification code dispatched to your phone.');
-      }
+      setInfoMessage(language === 'hi' ? 'ओटीपी आपके नंबर पर भेज दिया गया है।' : 'Verification code dispatched to your phone.');
     } catch (err) {
       setError(err.message || 'Failed to dispatch verification code.');
     } finally {
@@ -193,9 +190,22 @@ export const CustomerPortalModal = ({ isOpen, onClose, onNavigateToServices }) =
               </div>
 
               {error && (
-                <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/30 text-rose-700 dark:text-rose-400 text-xs flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{error}</span>
+                <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/30 text-rose-700 dark:text-rose-400 text-xs space-y-2">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{error}</span>
+                  </div>
+                  <div className="pt-1">
+                    <a
+                      href={createWhatsAppLink(`Hello Team MrTech Care, I need assistance logging into the customer portal for number: ${phone || 'my number'}`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] shadow-xs transition-colors"
+                    >
+                      <span>{language === 'hi' ? 'WhatsApp पर संपर्क करें' : 'Contact on WhatsApp'}</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               )}
 
@@ -253,9 +263,22 @@ export const CustomerPortalModal = ({ isOpen, onClose, onNavigateToServices }) =
               </div>
 
               {error && (
-                <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/30 text-rose-700 dark:text-rose-400 text-xs flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{error}</span>
+                <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/30 text-rose-700 dark:text-rose-400 text-xs space-y-2">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{error}</span>
+                  </div>
+                  <div className="pt-1">
+                    <a
+                      href={createWhatsAppLink(`Hello Team MrTech Care, I need assistance logging into the customer portal for number: ${phone || 'my number'}`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] shadow-xs transition-colors"
+                    >
+                      <span>{language === 'hi' ? 'WhatsApp पर संपर्क करें' : 'Contact on WhatsApp'}</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               )}
 

@@ -183,7 +183,9 @@ export function devApiPlugin() {
           const body = await readBody();
           const quoteType = body.quote_type === 'corporate' ? 'corporate' : 'individual';
           const year = new Date().getFullYear();
-          const num = `MTC-${year}-${quoteType.toUpperCase().slice(0, 4)}-${Math.floor(1000 + Math.random() * 9000)}`;
+          const timeTag = Date.now().toString(36).slice(-4).toUpperCase();
+          const entropy = Math.random().toString(36).substring(2, 6).toUpperCase();
+          const num = `MTC-${year}-${quoteType.toUpperCase().slice(0, 4)}-${timeTag}-${entropy}`;
 
           const record = {
             id: 'quote_' + Date.now(),
