@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mrtechcare",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-09",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mrtechcare-db",
+      "database_id": "5436c806-11dc-4a63-be9e-8f47cd01181c"
+    }
+  ]
+}
