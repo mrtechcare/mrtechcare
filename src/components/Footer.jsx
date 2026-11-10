@@ -84,6 +84,24 @@ export const Footer = ({ onTabChange }) => {
               </li>
               <li>
                 <button 
+                  onClick={() => handleNav('web-dev')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left flex items-center gap-1.5"
+                >
+                  <span>{language === 'hi' ? 'वेबसाइट डेवलपमेंट' : 'Website Development'}</span>
+                  <span className="text-[10px] text-flame-400 font-mono">₹4,999+</span>
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleNav('app-dev')} 
+                  className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left flex items-center gap-1.5"
+                >
+                  <span>{language === 'hi' ? 'मोबाइल ऐप डेवलपमेंट' : 'Mobile App Development'}</span>
+                  <span className="text-[10px] text-electric-400 font-mono">₹9,999+</span>
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => handleNav('pricing')} 
                   className="hover:text-flame-400 text-slate-300 dark:text-slate-400 transition-colors text-left"
                 >

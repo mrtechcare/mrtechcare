@@ -58,7 +58,7 @@ const iconMap = {
   FileCheck2
 };
 
-export const ServiceCard = ({ service }) => {
+export const ServiceCard = ({ service, onNavigate }) => {
   const { language, t } = useLanguage();
   const IconComponent = iconMap[service.icon] || Wrench;
   const content = service[language] || service.en;
@@ -120,6 +120,32 @@ export const ServiceCard = ({ service }) => {
             </li>
           ))}
         </ul>
+        {/* Dedicated Exploration Buttons for Web & App Development */}
+        {service.id === 'web-development' && onNavigate && (
+          <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/5">
+            <button
+              onClick={() => onNavigate('web-dev')}
+              type="button"
+              className="w-full py-2 px-3 rounded-lg text-xs font-bold text-flame-600 dark:text-flame-400 bg-flame-50 dark:bg-flame-500/10 hover:bg-flame-100 dark:hover:bg-flame-500/20 border border-flame-200 dark:border-flame-500/30 transition-all flex items-center justify-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
+            >
+              <span>{language === 'hi' ? 'विस्तृत वेबसाइट डेवलपमेंट पेज देखें' : 'View Dedicated Website Dev Page'}</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
+
+        {service.id === 'app-development' && onNavigate && (
+          <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/5">
+            <button
+              onClick={() => onNavigate('app-dev')}
+              type="button"
+              className="w-full py-2 px-3 rounded-lg text-xs font-bold text-electric-600 dark:text-electric-400 bg-blue-50 dark:bg-electric-500/10 hover:bg-blue-100 dark:hover:bg-electric-500/20 border border-blue-200 dark:border-electric-500/30 transition-all flex items-center justify-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500"
+            >
+              <span>{language === 'hi' ? 'विस्तृत मोबाइल ऐप पेज देखें' : 'View Dedicated App Dev Page'}</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Card Footer: Starting Price & WhatsApp Button */}

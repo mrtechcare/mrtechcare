@@ -15,7 +15,11 @@ import {
   Monitor, 
   Server, 
   Send,
-  AlertCircle
+  AlertCircle,
+  Clock,
+  Phone,
+  Lock,
+  Wrench
 } from 'lucide-react';
 
 export const QuotationsSection = () => {
@@ -41,8 +45,8 @@ export const QuotationsSection = () => {
     name: '',
     phone: '',
     email: '',
-    device: 'Laptop / Computer',
-    serviceRequired: 'On-site Repair & Maintenance',
+    device: 'Laptop (Windows / Mac)',
+    serviceRequired: 'On-site Doorstep Repair',
     details: ''
   });
 
@@ -196,7 +200,7 @@ export const QuotationsSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeIn">
             
             {/* Left Corporate Brief Column */}
-            <div className="lg:col-span-5 space-y-5">
+            <div className="lg:col-span-5 space-y-4">
               <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-4">
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-xl bg-flame-50 dark:bg-flame-500/10 border border-flame-200 dark:border-flame-500/30 flex items-center justify-center text-flame-600 dark:text-flame-400">
@@ -236,21 +240,36 @@ export const QuotationsSection = () => {
                 </div>
               </div>
 
-              {/* Quick WhatsApp Corporate Help */}
-              <div className="p-5 rounded-2xl bg-slate-100 dark:bg-midnight-950/60 border border-slate-200 dark:border-white/10 flex items-center justify-between text-xs">
-                <div>
-                  <span className="block font-bold text-slate-900 dark:text-white">Direct Corporate Desk</span>
-                  <span className="text-slate-500 font-mono">{DISPLAY_PHONE}</span>
+              {/* Direct Corporate Desk & SLA Commitments */}
+              <div className="p-5 sm:p-6 rounded-3xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-3.5">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-white/5">
+                  <div>
+                    <span className="block text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                      {language === 'hi' ? 'कॉर्पोरेट डेस्क' : 'Direct Corporate Desk'}
+                    </span>
+                    <span className="text-xs text-slate-500 font-mono">{DISPLAY_PHONE}</span>
+                  </div>
+                  <a
+                    href={createWhatsAppLink("Hello Team MrTech Care, I need a corporate quotation for our office IT infrastructure.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors shadow-xs"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 fill-current" />
+                    <span>WhatsApp RFP</span>
+                  </a>
                 </div>
-                <a
-                  href={createWhatsAppLink("Hello Team MrTech Care, I need a corporate quotation for our office IT infrastructure.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold inline-flex items-center gap-1 transition-colors"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 fill-current" />
-                  <span>WhatsApp RFP</span>
-                </a>
+
+                <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-2 font-medium">
+                    <Clock className="w-3.5 h-3.5 text-flame-500 shrink-0" />
+                    <span>{language === 'hi' ? '4 व्यावसायिक घंटों में कस्टम वाणिज्यिक प्रस्ताव' : 'Formal proposal within 4 business hours'}</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-medium">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>{language === 'hi' ? 'गैर-प्रकटीकरण (NDA) व संपूर्ण डेटा गोपनीयता' : 'Strict Non-Disclosure & Enterprise Data Privacy'}</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -282,10 +301,16 @@ export const QuotationsSection = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleCorpSubmit} className="space-y-4">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-white/10">
-                      Request a Custom Corporate Quotation
-                    </h3>
+                    <div className="pb-3 border-b border-slate-100 dark:border-white/10">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                        {language === 'hi' ? 'कॉर्पोरेट कोटेशन एवं RFP अनुरोध' : 'Request a Custom Corporate Quotation'}
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        {language === 'hi' ? 'अपने कार्यालय IT इंफ्रास्ट्रक्चर व AMC के लिए औपचारिक प्रस्ताव प्राप्त करें' : 'Tailored AMC agreements, workstation maintenance, and enterprise IT support'}
+                      </p>
+                    </div>
 
+                    {/* Row 1: Company Name & GSTIN */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
@@ -316,7 +341,8 @@ export const QuotationsSection = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {/* Row 2: Contact Person & Official Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                           Contact Person <span className="text-flame-600">*</span>
@@ -344,7 +370,10 @@ export const QuotationsSection = () => {
                           className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-flame-500"
                         />
                       </div>
+                    </div>
 
+                    {/* Row 3: Mobile Phone & Fleet Size */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                           Mobile / WhatsApp <span className="text-flame-600">*</span>
@@ -359,9 +388,7 @@ export const QuotationsSection = () => {
                           className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white font-mono focus:outline-none focus:ring-2 focus:ring-flame-500"
                         />
                       </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                           Fleet Size / Workstation Count
@@ -377,7 +404,10 @@ export const QuotationsSection = () => {
                           <option value="50+ Systems">50+ Systems (Enterprise)</option>
                         </select>
                       </div>
+                    </div>
 
+                    {/* Row 4: Primary Service Scope & Preferred SLA */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                           Primary Service Scope
@@ -393,8 +423,24 @@ export const QuotationsSection = () => {
                           <option value="Workflow Automation & AI Integration">Workflow Automation & AI Integration</option>
                         </select>
                       </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                          Preferred Maintenance SLA
+                        </label>
+                        <select
+                          value={corpForm.preferredSla}
+                          onChange={(e) => setCorpForm({ ...corpForm, preferredSla: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-flame-500"
+                        >
+                          <option value="Standard Scheduled Preventative Maintenance">Standard Scheduled Preventative Visits</option>
+                          <option value="Priority On-Call SLA (Under 4 Hours)">Priority On-Call SLA (Under 4 Hours)</option>
+                          <option value="Comprehensive Hardware & Standby Unit Cover">Comprehensive Hardware + Standby Units</option>
+                        </select>
+                      </div>
                     </div>
 
+                    {/* Row 5: Infrastructure & Requirement Details */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                         Infrastructure & Requirement Details
@@ -443,18 +489,22 @@ export const QuotationsSection = () => {
         {quoteType === 'individual' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeIn">
             
-            {/* Left Baseline Rate Highlights */}
+            {/* Left Baseline Rate Highlights & Service Commitments */}
             <div className="lg:col-span-5 space-y-4">
               <div className="p-6 rounded-3xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-3">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-flame-500" />
-                  <span>Transparent Baseline Pricing</span>
-                </h3>
-                <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                  For individual devices, we believe in straightforward, upfront pricing with zero hidden fees.
-                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-flame-50 dark:bg-flame-500/10 flex items-center justify-center text-flame-600 dark:text-flame-400">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                      {language === 'hi' ? 'पारदर्शी बेसलाइन दरें' : 'Transparent Baseline Pricing'}
+                    </h3>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400">No diagnostic fee if repair is not feasible</span>
+                  </div>
+                </div>
 
-                <div className="space-y-2 pt-2 text-xs">
+                <div className="space-y-2 pt-1 text-xs">
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-200 dark:border-white/5 font-mono">
                     <span className="text-slate-700 dark:text-slate-300">Remote Single Support</span>
                     <span className="font-bold text-flame-600 dark:text-flame-400">Starts ₹199</span>
@@ -474,6 +524,38 @@ export const QuotationsSection = () => {
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-200 dark:border-white/5 font-mono">
                     <span className="text-slate-700 dark:text-slate-300">iPhone Software Fixes</span>
                     <span className="font-bold text-flame-600 dark:text-flame-400">Starts ₹699</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Helpdesk & Verified Assurances */}
+              <div className="p-5 sm:p-6 rounded-3xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 shadow-sm space-y-3.5">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-white/5">
+                  <div>
+                    <span className="block text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                      {language === 'hi' ? 'ग्राहक हेल्पलाइन' : 'Direct Support Desk'}
+                    </span>
+                    <span className="text-xs text-slate-500 font-mono">{DISPLAY_PHONE}</span>
+                  </div>
+                  <a
+                    href={createWhatsAppLink("Hello Team MrTech Care, I need an estimate for my device repair.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors shadow-xs"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 fill-current" />
+                    <span>WhatsApp Quote</span>
+                  </a>
+                </div>
+
+                <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-2 font-medium">
+                    <Lock className="w-3.5 h-3.5 text-flame-500 shrink-0" />
+                    <span>{language === 'hi' ? '100% डेटा सुरक्षा — बिना अनुमति डेटा डिलीट नहीं' : '100% Data Privacy (No wipe without consent)'}</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-medium">
+                    <Wrench className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>{language === 'hi' ? 'ओरिजिनल OEM स्पेयर पार्ट्स व सर्विस वारंटी' : 'Genuine OEM parts with verified warranty'}</span>
                   </div>
                 </div>
               </div>
@@ -507,10 +589,16 @@ export const QuotationsSection = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleIndSubmit} className="space-y-4">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white pb-2 border-b border-slate-100 dark:border-white/10">
-                      Request Individual Service Quote
-                    </h3>
+                    <div className="pb-3 border-b border-slate-100 dark:border-white/10">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                        {language === 'hi' ? 'व्यक्तिगत सेवा कोटेशन अनुरोध' : 'Request Individual Service Quote'}
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        {language === 'hi' ? 'अपने डिवाइस के लिए पारदर्शी एस्टीमेट व सर्विस स्लॉट प्राप्त करें' : 'Get an upfront estimate and scheduled diagnostic visit for your device'}
+                      </p>
+                    </div>
 
+                    {/* Row 1: Name & Mobile */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
@@ -542,10 +630,24 @@ export const QuotationsSection = () => {
                       </div>
                     </div>
 
+                    {/* Row 2: Email & Device Type */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                          Device Type
+                          Email Address (Optional)
+                        </label>
+                        <input
+                          type="email"
+                          value={indForm.email}
+                          onChange={(e) => setIndForm({ ...indForm, email: e.target.value })}
+                          placeholder="name@example.com"
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-flame-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                          Device Category
                         </label>
                         <select
                           value={indForm.device}
@@ -559,10 +661,13 @@ export const QuotationsSection = () => {
                           <option value="Wi-Fi Router / Printer">Wi-Fi Router / Printer</option>
                         </select>
                       </div>
+                    </div>
 
+                    {/* Row 3: Service Needed & Preferred Mode */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                          Service Needed
+                          Primary Service Needed
                         </label>
                         <select
                           value={indForm.serviceRequired}
@@ -575,18 +680,33 @@ export const QuotationsSection = () => {
                           <option value="Operating System / Firmware Fix">Operating System / Firmware Fix</option>
                         </select>
                       </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                          Preferred Diagnostic Mode
+                        </label>
+                        <select
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-flame-500"
+                          defaultValue="Doorstep On-Site Visit (Delhi NCR)"
+                        >
+                          <option value="Doorstep On-Site Visit (Delhi NCR)">Doorstep On-Site Visit (Delhi NCR)</option>
+                          <option value="Instant Remote Screen Share (Pan-India)">Instant Remote Screen Share (Pan-India)</option>
+                          <option value="Workshop Drop-off & In-depth Lab">Workshop Drop-off & In-depth Lab</option>
+                        </select>
+                      </div>
                     </div>
 
+                    {/* Row 4: Problem Symptoms */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                        Problem Symptoms
+                        Problem Symptoms & Details <span className="text-flame-600">*</span>
                       </label>
                       <textarea
                         rows={3}
                         required
                         value={indForm.details}
                         onChange={(e) => setIndForm({ ...indForm, details: e.target.value })}
-                        placeholder="Briefly describe what is happening with the device..."
+                        placeholder="Briefly describe what is happening with the device (e.g. heating up, blue screen, bootloop, broken hinge, slow speed)..."
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-midnight-950 border border-slate-300 dark:border-white/10 text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-flame-500 resize-none"
                       />
                     </div>
@@ -601,9 +721,16 @@ export const QuotationsSection = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-flame-500 to-crimson-600 hover:from-flame-600 hover:to-crimson-700 text-white font-bold text-sm shadow-md transition-all disabled:opacity-50"
+                      className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-flame-500 to-crimson-600 hover:from-flame-600 hover:to-crimson-700 text-white font-bold text-sm shadow-md transition-all disabled:opacity-50"
                     >
-                      {isSubmitting ? <span>Calculating...</span> : <span>Get Instant Service Quote</span>}
+                      {isSubmitting ? (
+                        <span>Submitting Request...</span>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          <span>Get Instant Service Quote</span>
+                        </>
+                      )}
                     </button>
                   </form>
                 )}

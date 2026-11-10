@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider } from './context/AuthContext';
@@ -14,14 +14,56 @@ import { RemoteSupportSection } from './components/RemoteSupportSection';
 import { DoorstepSection } from './components/DoorstepSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
+import { WebDevelopmentPage } from './components/WebDevelopmentPage';
+import { AppDevelopmentPage } from './components/AppDevelopmentPage';
 import { Footer } from './components/Footer';
 import { QuickFloatingContact } from './components/QuickFloatingContact';
 import { CustomerPortalModal } from './components/CustomerPortalModal';
 import { Wrench, Tag, Globe2, UserCheck, ArrowRight, FileText, Star } from 'lucide-react';
 
+const getInitialTab = () => {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (path.includes('web-dev') || hash.includes('web-dev') || path.includes('website-development')) return 'web-dev';
+    if (path.includes('app-dev') || hash.includes('app-dev') || path.includes('app-development') || path.includes('mobile-app')) return 'app-dev';
+    if (path.includes('service') || hash.includes('service')) return 'services';
+    if (path.includes('pricing') || hash.includes('pricing')) return 'pricing';
+    if (path.includes('quote') || hash.includes('quote') || path.includes('rfp')) return 'quotes';
+    if (path.includes('coverage') || hash.includes('coverage')) return 'coverage';
+    if (path.includes('gallery') || hash.includes('gallery')) return 'gallery';
+    if (path.includes('feedback') || path.includes('review') || hash.includes('feedback') || hash.includes('review')) return 'feedback';
+    if (path.includes('contact') || hash.includes('contact') || path.includes('about') || hash.includes('about')) return 'contact';
+  }
+  return 'overview';
+};
+
 export function AppContent() {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState(getInitialTab);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
+
+  const handleTabChange = (tabId, updateHistory = true) => {
+    setActiveTab(tabId);
+    if (updateHistory && typeof window !== 'undefined') {
+      let targetPath = '/';
+      if (tabId === 'web-dev') targetPath = '/web-development';
+      else if (tabId === 'app-dev') targetPath = '/app-development';
+      else if (tabId !== 'overview') targetPath = `/#${tabId}`;
+
+      if (window.location.pathname !== targetPath && window.location.hash !== `#${tabId}`) {
+        window.history.pushState({ tab: tabId }, '', targetPath);
+      }
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setActiveTab(getInitialTab());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-midnight-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 selection:bg-flame-500 selection:text-white">
@@ -29,7 +71,7 @@ export function AppContent() {
       {/* Sticky Header with Coverage alert + Navigation + Horizontal Tabs */}
       <Header 
         activeTab={activeTab} 
-        onTabChange={setActiveTab} 
+        onTabChange={handleTabChange} 
         onOpenPortal={() => setIsPortalOpen(true)} 
       />
 
@@ -43,7 +85,7 @@ export function AppContent() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 sm:-mt-6 mb-10 relative z-20">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <button
-                  onClick={() => setActiveTab('services')}
+                  onClick={() => handleTabChange('services')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -57,7 +99,7 @@ export function AppContent() {
                 </button>
 
                 <button
-                  onClick={() => setActiveTab('pricing')}
+                  onClick={() => handleTabChange('pricing')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -71,7 +113,7 @@ export function AppContent() {
                 </button>
 
                 <button
-                  onClick={() => setActiveTab('quotes')}
+                  onClick={() => handleTabChange('quotes')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -85,7 +127,7 @@ export function AppContent() {
                 </button>
 
                 <button
-                  onClick={() => setActiveTab('feedback')}
+                  onClick={() => handleTabChange('feedback')}
                   className="p-3.5 sm:p-4 rounded-2xl bg-white dark:bg-midnight-900 border border-slate-200 dark:border-white/10 hover:border-flame-500/60 shadow-xs hover:shadow-md text-left transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flame-500"
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -106,7 +148,19 @@ export function AppContent() {
 
         {activeTab === 'services' && (
           <div className="animate-fadeIn">
-            <ServicesSection />
+            <ServicesSection onNavigate={handleTabChange} />
+          </div>
+        )}
+
+        {activeTab === 'web-dev' && (
+          <div className="animate-fadeIn">
+            <WebDevelopmentPage onNavigate={handleTabChange} />
+          </div>
+        )}
+
+        {activeTab === 'app-dev' && (
+          <div className="animate-fadeIn">
+            <AppDevelopmentPage onNavigate={handleTabChange} />
           </div>
         )}
 
@@ -156,11 +210,11 @@ export function AppContent() {
       <CustomerPortalModal 
         isOpen={isPortalOpen} 
         onClose={() => setIsPortalOpen(false)} 
-        onNavigateToServices={() => setActiveTab('services')} 
+        onNavigateToServices={() => handleTabChange('services')} 
       />
 
       {/* Footer with linked tab handler */}
-      <Footer onTabChange={setActiveTab} />
+      <Footer onTabChange={handleTabChange} />
       
       {/* Floating Instant WhatsApp Button */}
       <QuickFloatingContact />
